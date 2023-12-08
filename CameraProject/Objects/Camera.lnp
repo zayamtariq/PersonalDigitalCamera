@@ -1,0 +1,15 @@
+--cpu=Cortex-M4.fp.sp
+".\objects\main.o"
+".\objects\pll.o"
+".\objects\uart.o"
+".\objects\timer1a.o"
+".\objects\cortexm.o"
+".\objects\startup.o"
+".\objects\unified_port_init.o"
+".\objects\lcd_uart.o"
+".\objects\dma_uart.o"
+".\objects\uart0.o"
+--strict --scatter ".\Objects\Camera.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list ".\Listings\Camera.map" -o .\Objects\Camera.axf
