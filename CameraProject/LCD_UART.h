@@ -20,7 +20,20 @@ void LCD_WriteString(char * string);
 
 /**** SD CARD *********/ 
 
+// initialize sd card to perform instructions on 
+void LCD_MediaInit(void);
 
+// assuming no file system, use this to say which 512-byte section of the sd card to write to 
+void LCD_SetSectorAddress(uint32_t sector_location); 
+
+// write to address defined by most previous set sector address instruction 
+void LCD_WriteSector(uint8_t * source); 
+
+// flush after writing 
+void LCD_FlushMedia(void);
+
+// display image defined by most previous set sector address instruction 
+void LCD_DisplayImage(uint16_t x_pos, uint16_t y_pos);
 
 /**** FILE SYSTEM ****/ 
 
