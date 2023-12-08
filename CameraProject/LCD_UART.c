@@ -59,15 +59,50 @@ void LCD_WriteString(char * string) {
 /********* SD CARD FUNCTIONS **************/ 
 
 void LCD_MediaInit() { 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0xFF;
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x89;
 	
+	LCD_InData(); 
+	LCD_InData(); 
+	if (LCD_InData() == 0) LCD_WriteString("SD Card not present!"); 
 }
 
 void LCD_SetSectorAddress(uint32_t sector_location) { 
+	// command 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0xFF;
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x92;
+	// hiword
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = (sector_location & 0xFF000000) >> 24;
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = (sector_location & 0x00FF0000) >> 16;
+	// loword
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = (sector_location & 0x0000FF00) >> 8;
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = (sector_location & 0x000000FF);
 	
+	LCD_InData(); 
 }
 
 void LCD_WriteSector(uint8_t * source) { 
+	int i;
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x00;
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x17;
+	for (i = 0; i < 512; ++i) { 
+		while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+		UART3_DR_R = *(source + i); // iterating through the source array
+	}
 	
+	LCD_InData(); 
+	LCD_InData(); 
+	if (LCD_InData() == 0) LCD_WriteString("Write Media Attempt Failed");  
 }
 
 void LCD_FlushMedia() { 
@@ -78,10 +113,28 @@ void LCD_FlushMedia() {
 	
 	LCD_InData(); 
 	LCD_InData(); 
+	if (LCD_InData() == 0) LCD_WriteString("Flush Media Attempt Failed");  
 }
 
 void LCD_DisplayImage(uint16_t x_pos, uint16_t y_pos) { 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0xFF;
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x8B;
 	
+	// x
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = (x_pos & 0xFF00) >> 8;
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = (x_pos & 0x00FF);
+	
+	// y
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = (y_pos & 0xFF00) >> 8;
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = (y_pos & 0x00FF);
+	
+	LCD_InData(); 
 }
 
 
