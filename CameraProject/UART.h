@@ -43,3 +43,6 @@ char UART_ReadSingleByte(void);
 
 // read a packet of N bytes of data 
 void UART_InNBytes(int32_t N); 
+
+// hardware reset signal to send to camera 
+void Camera_HardwareReset(void); 

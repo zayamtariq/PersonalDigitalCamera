@@ -12,6 +12,8 @@ char image_array[512];
 #define UART_LCRH_FEN           0x00000010  // UART Enable FIFOs
 #define UART_CTL_UARTEN         0x00000001  // UART Enable
 
+// TODO: find a port for hardware reset
+
 void UART_Init() { 
 	// 1. uart configurations 
 	SYSCTL_RCGCUART_R |= 0x10; // activate UART4 
@@ -88,12 +90,14 @@ void UART_OutInitial() {
 	UART4_DR_R = 0x01; 
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART4_DR_R = 0x00; 
-	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait - decides image format  
-	UART4_DR_R = 0x07; 
+	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait - decides image format (RAW) 
+	UART4_DR_R = 0x03; 
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait - decides raw resolution
-	UART4_DR_R = 0x01; 
+	UART4_DR_R = 0x03; // 160 x 120 in RAW 
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait - decides jpeg resolution 
 	UART4_DR_R = 0x05; // we are using a 320 x 240 display 
+	
+	UART_InData(); 
 } 
 
 // choosing 512 bytes 
@@ -110,6 +114,8 @@ void UART_OutPackageSize() {
 	UART4_DR_R = 0x02; 
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART4_DR_R = 0x00; 
+	
+	UART_InData(); 
 }
 
 void UART_OutSnapshot() { 
@@ -118,13 +124,15 @@ void UART_OutSnapshot() {
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART4_DR_R = 0x05; 
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait 
-	UART4_DR_R = 0x00; 
+	UART4_DR_R = 0x01; // RAW  
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART4_DR_R = 0x00; 
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART4_DR_R = 0x00; 
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART4_DR_R = 0x00; 
+	
+	UART_InData(); 
 }
 
 void UART_OutGetPic() { 
@@ -133,13 +141,15 @@ void UART_OutGetPic() {
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART4_DR_R = 0x04; 
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait 
-	UART4_DR_R = 0x01; 
+	UART4_DR_R = 0x02; // RAW  
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART4_DR_R = 0x00; 
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART4_DR_R = 0x00; 
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART4_DR_R = 0x00; 
+	
+	UART_InData(); 
 }
 
 void UART_OutCUSTOMACK(uint16_t num_package) { 
@@ -184,3 +194,9 @@ void UART_InNBytes(int32_t N) {
 		image_array[k] = (UART4_DR_R&0xFF);
 	}
 }	
+
+
+void Camera_HardwareReset() { 
+	PF4 ^= 0x10; 
+	PF4 ^= 0x10; 
+}
