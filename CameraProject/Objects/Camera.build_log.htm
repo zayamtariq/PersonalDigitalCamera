@@ -21,30 +21,34 @@ Target DLL:      lmidk-agdi.dll V???
 Dialog DLL:      TCM.DLL V1.48.0.0
  
 <h2>Project:</h2>
-C:\Users\zayam\CameraProject\Camera.uvprojx
+C:\Users\zayam\PersonalDigitalCamera\CameraProject\Camera.uvprojx
 Project File Date:  08/24/2023
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.15', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-main.c(25): warning: no previous prototype for function 'LCD_main' [-Wmissing-prototypes]
-void LCD_main() { 
+main.c(4): warning: In file included from...
+./LCD_UART.h(66): warning: no newline at end of file [-Wnewline-eof]
+*/ 
+   ^
+main.c(59): warning: no previous prototype for function 'LCD_main1' [-Wmissing-prototypes]
+void LCD_main1() { 
      ^
-main.c(25): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void LCD_main() { 
+main.c(59): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void LCD_main1() { 
 ^
 static 
-main.c(25): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
-void LCD_main() { 
-             ^
-main.c(25): warning: function 'LCD_main' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
-void LCD_main() { 
-                ^
-3 warnings generated.
+main.c(59): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void LCD_main1() { 
+              ^
+main.c(253): warning: 'return' will never be executed [-Wunreachable-code-return]
+        return 0; 
+               ^
+4 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=3194 RO-data=50 RW-data=4 ZI-data=1132  
-".\Objects\Camera.axf" - 0 Error(s), 3 Warning(s).
+Program Size: Code=4230 RO-data=758 RW-data=4 ZI-data=1132  
+".\Objects\Camera.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -67,7 +71,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.4.0
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>

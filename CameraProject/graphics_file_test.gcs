@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<graphics_Composer version="2.0">
+  <item type="Properties" version="2">
+    <ResX>240</ResX>
+    <ResY>320</ResY>
+  </item>
+  <item type="Image" version="2">
+    <File>WIN_20200620_00_43_48_Pro.jpg</File>
+    <Name>WIN_20200620_00_43_48_Pro.jpg</Name>
+    <Updated>2020/06/20 05:43:50</Updated>
+    <Position>
+      <Top>0</Top>
+      <Left>0</Left>
+      <Width>240</Width>
+      <Height>320</Height>
+    </Position>
+    <Source>
+      <Top>159</Top>
+      <Left>467</Left>
+      <Width>520</Width>
+      <Height>453</Height>
+    </Source>
+    <Pannable>False</Pannable>
+    <Tiled>
+      <Enabled>False</Enabled>
+    </Tiled>
+    <BitDepth>16</BitDepth>
+    <IgnoreScreensize>True</IgnoreScreensize>
+  </item>
+</graphics_Composer>

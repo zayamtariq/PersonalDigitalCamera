@@ -27,7 +27,7 @@ void LCD_MediaInit(void);
 void LCD_SetSectorAddress(uint32_t sector_location); 
 
 // write to address defined by most previous set sector address instruction 
-void LCD_WriteSector(uint8_t * source); 
+void LCD_WriteSector(const uint8_t source[]); 
 
 // flush after writing 
 void LCD_FlushMedia(void);
@@ -37,6 +37,7 @@ void LCD_DisplayImage(uint16_t x_pos, uint16_t y_pos);
 
 /**** FILE SYSTEM ****/ 
 
+/*
 // mount the file system 
 void LCD_FileMount(void); 
 
@@ -61,4 +62,5 @@ void LCD_FileUnmount(void);
 int LCD_CountFiles(void); 
 
 // display image associated with certain handle 
-void LCD_DisplayImage(uint16_t handle); 
+// void LCD_DisplayImage(uint16_t handle); 
+*/ 

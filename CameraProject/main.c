@@ -18,7 +18,7 @@
 // #define DMA_SOURCE       (*((volatile uint32_t *)0x40006040))    // PC4, apparently 
 
 // picture of a stick figure to send to the lcd display
-const char LCD_TestImage[512] = {0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
+const static uint8_t LCD_TestImage[512] = {0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
 	0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
 	0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xc0, 0x0f, 0xff, 0xff, 0xff, 0xff, 
 	0xff, 0xfe, 0x00, 0x00, 0x0f, 0xff, 0xff, 0xff, 0xff, 0xf0, 0x00, 0x00, 0x01, 0xff, 0xff, 0xff, 
@@ -64,7 +64,9 @@ void LCD_main1() {
 	EnableInterrupts(); 
 	
 	LCD_Clear(); 
-	LCD_WriteString("Ready to write..."); 
+	LCD_WriteString("Ready to write... \n"); 
+	
+	for (int x = 0; x < 16000000; ++x) {}
 	
 	// 1. need to issue a MEDIA_INIT command in order to initialize the sd card 
 	// 2. then, we need to SET THE SECTOR ADDRESS of where the data array needs to go (where do we even get this sector address though) 
@@ -73,8 +75,20 @@ void LCD_main1() {
 	// 5. then, finally, let's DISPLAY image (after we've written to the sd card)
 	
 	// note: in this extremely simple case, we will write to and display from the 0th sector, and thats it (only ONE 512 byte sector in this case) 
-	
-	
+	LCD_MediaInit(); 		
+	LCD_SetSectorAddress(0); 
+	LCD_WriteSector(LCD_TestImage); 
+	LCD_FlushMedia(); 
+		
+	for (int x = 0; x < 16000000; ++x) {}	
+		
+	// LCD_Clear();
+	LCD_WriteString("Now displaying image: \n"); 	
+	// LCD_SetSectorAddress(0); 
+	LCD_DisplayImage(30, 0); 
+		
+		// after testing: clearly, an image is being written to and displayed, but i think the lack of it being in RAW format is making this not work. 
+		// next test main (LCD_Camera_main2) will try and get a RAW image, and display it on the lcd display 
 }
 
 
@@ -235,6 +249,8 @@ int main() {
 		// if they press ANOTHER another button, we can go to the light settings 
 	}
 	*/ 
+	
+	while (1) {} 
 	
 	return 0; 
 } 

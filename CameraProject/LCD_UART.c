@@ -28,6 +28,8 @@ void LCD_Clear() {
 	UART3_DR_R = 0xFF;
 	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART3_DR_R = 0xCD; 	
+	
+	LCD_InData(); 
 }
 
 void LCD_DrawRectangle() { 
@@ -64,9 +66,9 @@ void LCD_MediaInit() {
 	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART3_DR_R = 0x89;
 	
-	LCD_InData(); 
-	LCD_InData(); 
-	if (LCD_InData() == 0) LCD_WriteString("SD Card not present!"); 
+	if (LCD_InData() != 0x06) LCD_WriteString("Media Init Command Unsuccessful \n"); 
+	if (LCD_InData() == 1) LCD_WriteString("Actually you just misread \n"); 
+	if (LCD_InData() == 0) LCD_WriteString("SD Card not present! \n"); 
 }
 
 void LCD_SetSectorAddress(uint32_t sector_location) { 
@@ -89,7 +91,7 @@ void LCD_SetSectorAddress(uint32_t sector_location) {
 	LCD_InData(); 
 }
 
-void LCD_WriteSector(uint8_t * source) { 
+void LCD_WriteSector(const uint8_t source[]) { 
 	int i;
 	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART3_DR_R = 0x00;
@@ -97,12 +99,12 @@ void LCD_WriteSector(uint8_t * source) {
 	UART3_DR_R = 0x17;
 	for (i = 0; i < 512; ++i) { 
 		while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
-		UART3_DR_R = *(source + i); // iterating through the source array
+		UART3_DR_R = source[i]; // iterating through the source array
 	}
 	
 	LCD_InData(); 
 	LCD_InData(); 
-	if (LCD_InData() == 0) LCD_WriteString("Write Media Attempt Failed");  
+	if (LCD_InData() == 0) LCD_WriteString("Write Media Attempt Failed \n");  
 }
 
 void LCD_FlushMedia() { 
@@ -113,7 +115,7 @@ void LCD_FlushMedia() {
 	
 	LCD_InData(); 
 	LCD_InData(); 
-	if (LCD_InData() == 0) LCD_WriteString("Flush Media Attempt Failed");  
+	if (LCD_InData() == 0) LCD_WriteString("Flush Media Attempt Failed \n");  
 }
 
 void LCD_DisplayImage(uint16_t x_pos, uint16_t y_pos) { 
@@ -134,12 +136,12 @@ void LCD_DisplayImage(uint16_t x_pos, uint16_t y_pos) {
 	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART3_DR_R = (y_pos & 0x00FF);
 	
-	LCD_InData(); 
+	if (LCD_InData() != 0x06) LCD_WriteString("Unable to Display Image \n"); 
 }
 
 
 /********* FILE SYSTEM FUNCTIONS **********/ 
-
+/*
 void LCD_FileMount() { 
 	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART3_DR_R = 0xFF; 
@@ -281,6 +283,7 @@ int LCD_CountFiles() {
 	return num_files; 
 }	
 
+
 void LCD_DisplayImage(uint16_t handle) { 
 	// command
 	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
@@ -310,3 +313,4 @@ void LCD_DisplayImage(uint16_t handle) {
 	LCD_InData();
 	LCD_InData(); 
 }
+*/
