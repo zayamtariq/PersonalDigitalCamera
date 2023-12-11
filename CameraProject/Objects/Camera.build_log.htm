@@ -41,7 +41,7 @@ static
 main.c(59): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
 void LCD_main1() { 
               ^
-main.c(201): warning: passing 'char [512]' to parameter of type 'const uint8_t *' (aka 'const unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
+main.c(205): warning: passing 'char [512]' to parameter of type 'const uint8_t *' (aka 'const unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
                 LCD_WriteSector(image_array); 
                                 ^~~~~~~~~~~
 ./LCD_UART.h(30): note: passing argument to parameter 'source' here
@@ -57,13 +57,13 @@ static
 main.c(94): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
 void LCD_Camera_main2() { 
                      ^
-main.c(386): warning: 'return' will never be executed [-Wunreachable-code-return]
+main.c(390): warning: 'return' will never be executed [-Wunreachable-code-return]
         return 0; 
                ^
 7 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=7554 RO-data=818 RW-data=4 ZI-data=1652  
+Program Size: Code=7618 RO-data=818 RW-data=4 ZI-data=1652  
 ".\Objects\Camera.axf" - 0 Error(s), 7 Warning(s).
 
 <h2>Software Packages used:</h2>
@@ -87,7 +87,7 @@ Package Vendor: Keil
 <h2>Collection of Component Files used:</h2>
 
    * Component: ARM::CMSIS:CORE:5.4.0
-Build Time Elapsed:  00:00:01
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

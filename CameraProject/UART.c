@@ -94,7 +94,7 @@ void UART_OutInitial() {
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART4_DR_R = 0x00; 
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait - decides image format (RAW) 
-	UART4_DR_R = 0x03; 
+	UART4_DR_R = 0x08; 
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait - decides raw resolution
 	UART4_DR_R = 0x03; // 160 x 120 in RAW 
 	while ((UART4_FR_R & UART_FR_TXFF) != 0); // busy wait - decides jpeg resolution 

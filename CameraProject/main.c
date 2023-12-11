@@ -165,6 +165,8 @@ void LCD_Camera_main2() {
 	
 	LCD_WriteString("Out Snapshot Done... \n"); 
 	
+	for (int z = 0; z < 800000; ++z) {} // 100 ms delay to allow camera to chill 
+	
 	UART_OutGetPic(); 
 	if (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x04 || array[4] != 0x00 || array[5] != 0x00) { 
 		LCD_Clear(); 
@@ -173,6 +175,8 @@ void LCD_Camera_main2() {
 	}	
 	
 	LCD_WriteString("Out Get Pic Done... \n"); 
+	
+	for (int z = 0; z < 800000; ++z) {} // 100 ms delay to allow camera to chill 
 	
 	// get the number of 512-byte transfers: 
 	UART_InData(); 
