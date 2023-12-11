@@ -200,8 +200,12 @@ void UART_InNBytes(int32_t N) {
 
 
 void Camera_HardwareReset() { 
+	DisableInterrupts(); 
+	
 	int i; 
 	PF1 ^= 0x02; 
-	for (i = 0; i < 2000; ++i) {} 
+	for (i = 0; i < 20000000; ++i) {} 
 	PF1 ^= 0x02; 
+		
+	EnableInterrupts(); 
 }

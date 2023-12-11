@@ -110,9 +110,14 @@ void LCD_Camera_main2() {
 	Camera_HardwareReset(); 
 	UART_InData(); 
 	LCD_WriteString("Syncing... \n"); 
+	uint8_t SyncFailureCounter = 0; 
 	while (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x0D || array[4] != 0x00 || array[5] != 0x00) { 
-		Camera_HardwareReset(); 
 		UART_InData();  
+		++SyncFailureCounter; 
+		if (SyncFailureCounter == 10) { 
+			Camera_HardwareReset(); 
+			SyncFailureCounter = 0; 
+		}
 	} 
 	LCD_WriteString("Syncing 2... \n"); 
 	// once we've gotten here, we've read our ACK signal, and can stop sending sync signals: 
@@ -132,7 +137,6 @@ void LCD_Camera_main2() {
 	
 	/***** TAKING THE PHOTO START*****/ 
 	LCD_WriteString("Taking photo... \n"); 
-	LCD_Clear(); 
 	
 	UART_OutInitial(); 
 	if (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x01 || array[4] != 0x00 || array[5] != 0x00) { 
@@ -141,12 +145,16 @@ void LCD_Camera_main2() {
 		while (1) {} 
 	}
 	
+	LCD_WriteString("Out Initial Done... \n"); 
+	
 	UART_OutPackageSize(); 
 	if (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x06 || array[4] != 0x00 || array[5] != 0x00) { 
 		LCD_Clear(); 
 		LCD_WriteString("Package Size has gone wrong. Please shut down system. \n"); 
 		while (1) {} 
 	}
+	
+	LCD_WriteString("Out Package Done... \n"); 
 	
 	UART_OutSnapshot(); 
 	if (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x05 || array[4] != 0x00 || array[5] != 0x00) { 
@@ -155,12 +163,16 @@ void LCD_Camera_main2() {
 		while (1) {} 
 	}
 	
+	LCD_WriteString("Out Snapshot Done... \n"); 
+	
 	UART_OutGetPic(); 
 	if (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x04 || array[4] != 0x00 || array[5] != 0x00) { 
 		LCD_Clear(); 
 		LCD_WriteString("Get Picture has gone wrong. Please shut down system. \n"); 
 		while (1) {} 
 	}	
+	
+	LCD_WriteString("Out Get Pic Done... \n"); 
 	
 	// get the number of 512-byte transfers: 
 	UART_InData(); 
@@ -171,6 +183,8 @@ void LCD_Camera_main2() {
 	} 
 	int32_t NUM_BYTES = (((array[5] & 0xFF) << 16) + ((array[4] & 0xFF) << 8) + array[3]);  
 	int32_t NUM_TRANSFERS = NUM_BYTES / 512;  
+	
+	LCD_WriteString("Get Transfer Size Done... \n"); 
 	
 	uint16_t current_package_number = 0; 
 	int32_t num_bytes_left = NUM_BYTES; 
@@ -195,11 +209,12 @@ void LCD_Camera_main2() {
 			image_array[k] = 0; 
 		}
 	}
+	
 	LCD_WriteString("Done taking photo... \n"); 
 	/***** TAKING THE PHOTO END*****/ 	
 	
 	/***** SHOWING THE PHOTO START *****/ 
-	
+	LCD_WriteString("Showing photo... \n"); 
 	LCD_SetSectorAddress(0); 
 	LCD_DisplayImage(0, 0); 
 	
