@@ -13,6 +13,7 @@ char image_array[512];
 #define UART_CTL_UARTEN         0x00000001  // UART Enable
 
 // TODO: find a port for hardware reset
+#define PF1                     (*((volatile uint32_t *)0x40025008))
 
 void UART_Init() { 
 	// 1. uart configurations 
@@ -29,6 +30,8 @@ void UART_Init() {
 	GPIO_PORTC_DEN_R |= 0x30; // enable digital I/O on PC4-5 
 	GPIO_PORTC_PCTL_R = (GPIO_PORTC_PCTL_R&0xFF00FFFF)+0x110000; 
 	GPIO_PORTC_AMSEL_R &= ~0x03; // disable analog functionality 
+	// for the camera: 
+	PF1 = 0x02; 
 }
 
 // we want to receive an acknowledge signal most of the time 
@@ -197,6 +200,8 @@ void UART_InNBytes(int32_t N) {
 
 
 void Camera_HardwareReset() { 
-	PF4 ^= 0x10; 
-	PF4 ^= 0x10; 
+	int i; 
+	PF1 ^= 0x02; 
+	for (i = 0; i < 2000; ++i) {} 
+	PF1 ^= 0x02; 
 }

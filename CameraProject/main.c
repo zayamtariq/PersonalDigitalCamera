@@ -107,7 +107,7 @@ void LCD_Camera_main2() {
 	LCD_MediaInit(); 	
 	
 	// need to send a reset signal to camera before syncing 
-	// Camera_HardwareReset(); 
+	Camera_HardwareReset(); 
 	UART_InData(); 
 	LCD_WriteString("Syncing... \n"); 
 	while (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x0D || array[4] != 0x00 || array[5] != 0x00) { 

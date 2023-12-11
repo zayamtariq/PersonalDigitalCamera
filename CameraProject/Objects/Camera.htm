@@ -3,7 +3,7 @@
 <title>Static Call Graph - [.\Objects\Camera.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image .\Objects\Camera.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6150002: Last Updated: Sun Dec 10 21:04:51 2023
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6150002: Last Updated: Sun Dec 10 21:28:02 2023
 <BR><P>
 <H3>Maximum Stack Usage =        104 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -760,11 +760,13 @@ Global Symbols
 
 <P><STRONG><a name="[df]"></a>__semihosting_library_function</STRONG> (Thumb, 0 bytes, Stack size unknown bytes, indicate_semi.o(.text), UNUSED)
 
-<P><STRONG><a name="[9e]"></a>Camera_HardwareReset</STRONG> (Thumb, 26 bytes, Stack size 0 bytes, uart.o(.text.Camera_HardwareReset))
-<BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Camera_main2
+<P><STRONG><a name="[9d]"></a>Camera_HardwareReset</STRONG> (Thumb, 64 bytes, Stack size 4 bytes, uart.o(.text.Camera_HardwareReset))
+<BR><BR>[Stack]<UL><LI>Max Depth = 4<LI>Call Chain = Camera_HardwareReset
+</UL>
+<BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Camera_main2
 </UL>
 
-<P><STRONG><a name="[93]"></a>LCD_Camera_main2</STRONG> (Thumb, 1110 bytes, Stack size 40 bytes, main.o(.text.LCD_Camera_main2))
+<P><STRONG><a name="[93]"></a>LCD_Camera_main2</STRONG> (Thumb, 1114 bytes, Stack size 40 bytes, main.o(.text.LCD_Camera_main2))
 <BR><BR>[Stack]<UL><LI>Max Depth = 88 + Unknown Stack Size
 <LI>Call Chain = LCD_Camera_main2 &rArr; LCD_WriteSector &rArr; LCD_WriteString
 </UL>
@@ -777,7 +779,7 @@ Global Symbols
 <LI><a href="#[a1]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutACK
 <LI><a href="#[98]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_Init
 <LI><a href="#[a7]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InNBytes
-<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InData
+<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InData
 <LI><a href="#[9f]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Stop
 <LI><a href="#[99]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Timer1A_Init
 <LI><a href="#[95]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;PLL_Init
@@ -791,7 +793,7 @@ Global Symbols
 <LI><a href="#[a0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Clear
 <LI><a href="#[9a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;EnableInterrupts
 <LI><a href="#[94]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;DisableInterrupts
-<LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera_HardwareReset
+<LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;Camera_HardwareReset
 </UL>
 <BR>[Called By]<UL><LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
@@ -925,7 +927,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Camera_main2
 </UL>
 
-<P><STRONG><a name="[9d]"></a>UART_InData</STRONG> (Thumb, 230 bytes, Stack size 0 bytes, uart.o(.text.UART_InData))
+<P><STRONG><a name="[9e]"></a>UART_InData</STRONG> (Thumb, 230 bytes, Stack size 0 bytes, uart.o(.text.UART_InData))
 <BR><BR>[Called By]<UL><LI><a href="#[a4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutSnapshot
 <LI><a href="#[a3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutPackageSize
 <LI><a href="#[a2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_OutInitial
@@ -939,7 +941,7 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Camera_main2
 </UL>
 
-<P><STRONG><a name="[98]"></a>UART_Init</STRONG> (Thumb, 166 bytes, Stack size 0 bytes, uart.o(.text.UART_Init))
+<P><STRONG><a name="[98]"></a>UART_Init</STRONG> (Thumb, 178 bytes, Stack size 0 bytes, uart.o(.text.UART_Init))
 <BR><BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Camera_main2
 </UL>
 
@@ -956,7 +958,7 @@ Global Symbols
 <P><STRONG><a name="[a5]"></a>UART_OutGetPic</STRONG> (Thumb, 188 bytes, Stack size 8 bytes, uart.o(.text.UART_OutGetPic))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART_OutGetPic
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InData
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Camera_main2
 </UL>
@@ -964,7 +966,7 @@ Global Symbols
 <P><STRONG><a name="[a2]"></a>UART_OutInitial</STRONG> (Thumb, 188 bytes, Stack size 8 bytes, uart.o(.text.UART_OutInitial))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART_OutInitial
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InData
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Camera_main2
 </UL>
@@ -972,7 +974,7 @@ Global Symbols
 <P><STRONG><a name="[a3]"></a>UART_OutPackageSize</STRONG> (Thumb, 188 bytes, Stack size 8 bytes, uart.o(.text.UART_OutPackageSize))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART_OutPackageSize
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InData
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Camera_main2
 </UL>
@@ -980,7 +982,7 @@ Global Symbols
 <P><STRONG><a name="[a4]"></a>UART_OutSnapshot</STRONG> (Thumb, 188 bytes, Stack size 8 bytes, uart.o(.text.UART_OutSnapshot))
 <BR><BR>[Stack]<UL><LI>Max Depth = 8<LI>Call Chain = UART_OutSnapshot
 </UL>
-<BR>[Calls]<UL><LI><a href="#[9d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InData
+<BR>[Calls]<UL><LI><a href="#[9e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_InData
 </UL>
 <BR>[Called By]<UL><LI><a href="#[93]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;LCD_Camera_main2
 </UL>
