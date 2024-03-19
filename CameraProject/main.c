@@ -17,7 +17,10 @@
 // #define DMA_SOURCE 							((volatile uint32_t *)0x40010000)
 // #define DMA_SOURCE       (*((volatile uint32_t *)0x40006040))    // PC4, apparently 
 
+static uint8_t LCD_TestParagraph[512] = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus e";
+
 // picture of a stick figure to send to the lcd display
+/*
 const static uint8_t LCD_TestImage[512] = {0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
 	0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 
 	0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xc0, 0x0f, 0xff, 0xff, 0xff, 0xff, 
@@ -50,6 +53,7 @@ const static uint8_t LCD_TestImage[512] = {0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0
 	0xff, 0xfe, 0x00, 0x0f, 0xff, 0xff, 0xff, 0xff, 0xff, 0xfc, 0x02, 0x07, 0xff, 0xff, 0xff, 0xff, 
 	0xff, 0xf8, 0x0f, 0x81, 0xff, 0xff, 0xff, 0xff, 0xff, 0xe0, 0x7f, 0xc0, 0x7f, 0xff, 0xff, 0xff, 
 	0xff, 0x00, 0xff, 0xe0, 0x1f, 0xff, 0xff, 0xff, 0xfe, 0x01, 0xff, 0xf8, 0x07, 0xff, 0xff, 0xff}; 
+*/ 
 
 // main for lcd tests 
 // intended purposes: 
@@ -77,7 +81,7 @@ void LCD_main1() {
 	// note: in this extremely simple case, we will write to and display from the 0th sector, and thats it (only ONE 512 byte sector in this case) 
 	LCD_MediaInit(); 		
 	LCD_SetSectorAddress(0); 
-	LCD_WriteSector(LCD_TestImage); 
+	// LCD_WriteSector(LCD_TestImage); 
 	LCD_FlushMedia(); 
 		
 	for (int x = 0; x < 16000000; ++x) {}	
@@ -180,7 +184,7 @@ void LCD_Camera_main2() {
 	
 	// get the number of 512-byte transfers: 
 	UART_InData(); 
-	if (array[0] != 0xAA || array[1] != 0x0A || array[2] != 0x01) {
+	if (array[0] != 0xAA || array[1] != 0x0A || array[2] != 0x02) {
 		LCD_Clear(); 
 		LCD_WriteString("Transferring has gone wrong. Please shut down system. \n"); 
 		while (1) {} 
@@ -191,25 +195,46 @@ void LCD_Camera_main2() {
 	LCD_WriteString("Get Transfer Size Done... \n"); 
 	
 	uint16_t current_package_number = 0; 
+	LCD_SetSectorAddress(current_package_number); // start at beginning of SD card 
 	int32_t num_bytes_left = NUM_BYTES; 
 	while (current_package_number < NUM_TRANSFERS) { 
 		UART_OutCUSTOMACK(current_package_number); 
+		
+		for (int z = 0; z < 800000; ++z) {} // 100 ms delay to allow camera to chill 
+		
 		if (num_bytes_left >= 512) { 
 			UART_InNBytes(512); // populating image array 
 		}	else { 
 			UART_InNBytes(num_bytes_left);
 		}					
 				
+		LCD_WriteString("Image Array populated! \n");
+		
 		// now write to sector in SD card: 	
-		LCD_SetSectorAddress(current_package_number); 
 		LCD_WriteSector(image_array); 
 		LCD_FlushMedia(); 	
 		
+		//---------- BAD 
+		
+		
+		if (current_package_number == 3) { 
+			LCD_SetSectorAddress(0); 
+			LCD_DisplayImage(0, 30); 
+			LCD_SetSectorAddress(1); 
+			LCD_DisplayImage(0, 30); 
+			LCD_SetSectorAddress(2); 
+			LCD_DisplayImage(0, 30); 
+			LCD_SetSectorAddress(3); 
+			LCD_DisplayImage(0, 30); 
+		}
+		
+		//---------- BAD 	
+			
 		++current_package_number; 
 		num_bytes_left -= 512; 
 		
 		// and then finally: clear image array in order to be ready for next transfer 
-		for (int32_t k = 0; k < 512; ++k) {  
+		for (uint16_t k = 0; k < 512; ++k) {  
 			image_array[k] = 0; 
 		}
 	}
@@ -226,164 +251,42 @@ void LCD_Camera_main2() {
 	
 }
 
-
-int main() { 
-	LCD_Camera_main2(); 
-/****** SYNCING AND INITIALIZATION ******/
-	/*
-	DisableInterrupts(); 
+void sd_card_main3() { 
+	DisableInterrupts();
 	PLL_Init(Bus80MHz);  
 	Unified_Port_Init(); // initialize all ports 
-	// 1. first need to send a message and do this at a 5 ms interval.
-	// do this by initializing a timer to go with this. 
-	Timer1A_Init(UART_OutSync, SyncTime * 80000, 2); 
-	UART_Init(); // initialize camera uart 
 	LCD_UART_Init(); // initialize lcd communication 
-	UART0_Init(); 
 	EnableInterrupts(); 
 	
-	// 2. receive data from UART (waiting for the ACK) 
-	// 3. and then the same thing with the SYNC 
-	UART_InData();
-	LCD_WriteString("Syncing..."); 	
-	while (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x0D || array[4] != 0x00 || array[5] != 0x00) { 
-		UART_InData();  
-	} 
-	// once we've gotten here, we've read our ACK signal, and can stop sending sync signals. 
-	Timer1A_Stop(); 
-	// now we need to read our CAMERA'S SYNC signal 
-	UART_InData(); 
-	while (array[0] != 0xAA || array[1] != 0x0D || array[2] != 0x00 || array[3] != 0x00 || array[4] != 0x00 || array[5] != 0x00) { 
-		UART_InData(); 
-	}		
-	UART0_OutString("received ack");  
-	// finally, we send our OWN ACK signal 
-	UART_OutACK(); 
-// and now we're done syncing, if we've made it this far! 
-	*/ 
-/******* SYNCING ********/ 
-// WE MADE IT HERE. 
-	/*
 	LCD_Clear(); 
-	LCD_InData(); 
-	// so now steps we need to take 
-	// 1. Send the initial command 
-	// we should make this an interface we can choose from at startup? 
-	// for now, JPEG is totally fine 
+	LCD_WriteString("Test"); 
 	
-	// initial host signal 
-	UART_OutInitial();
-	// camera ack signal 
-	UART_InData(); 
-	while (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x01 || array[4] != 0x00 || array[5] != 0x00) { 
-		UART_InData(); 
-	}
+	// initialize SD card for further use by LCD display 
+	LCD_MediaInit(); 
 	
-	// set package size
-	UART_OutPackageSize(); 
-	// camera ack signal 
-	UART_InData(); 
-	while (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x06 || array[4] != 0x00 || array[5] != 0x00) { 
-		UART_InData(); 
-	}
+	// set the sector address we're going to start writing to
+	LCD_SetSectorAddress(0); 
+	
+	// write text to that sector 
+	LCD_WriteSector(LCD_TestParagraph); 
+	
+	// set the sector address we're going to read from 
+	LCD_SetSectorAddress(0); 
+	
+	// read text from that sector
+	uint8_t LCD_ReadParagraph[512]; 
+	
+	LCD_ReadSector(&LCD_ReadParagraph);
+	
+	// write it back on the screen to make sure we aint buggin: 
+	LCD_WriteString("\n"); 
+	LCD_WriteString((char *) LCD_ReadParagraph); 
+	
+	while (1) {} 
+}	
 
-	while (1) { 
-		// if they press a button (pf0 = sw2, pf4 = sw1) 
-		if (PF4 == 0) { 
-			for (int x = 0; x < 800000; x++) {}
-			// send out a snap shot 
-			UART_OutSnapshot(); 
-			LCD_WriteString("Sent Snapshot"); 
-			
-			// camera ack signal 
-			UART_InData(); 
-			while (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x05 || array[4] != 0x00 || array[5] != 0x00) { 
-				LCD_WriteString("Snapshot acknowledge"); 
-				UART_InData(); 
-			}
-			
-			for (int x = 0; x < 800000; x++) {} 
-			
-			// and then also GET the picture and [send it to the SD card] -> just do something with it  
-			UART_OutGetPic(); 
-			LCD_WriteString("Getting Picture");  
-			
-			// camera ack signal 
-			UART_InData(); 
-			while (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x04 || array[4] != 0x00 || array[5] != 0x00) { 
-				// gonna need to be careful that this doesn't eat the data up. 
-				UART_InData(); 
-			}	
-			LCD_WriteString("Done getting picture"); 
-			
-			// and now we ALSO need to read the data using UART_InData
-			// the first UART_InData will give us the LENGTH of our data
-			
-			UART_InData(); 
-			while (array[0] != 0xAA || array[1] != 0x0A || array[2] != 0x01) {} 
-			int32_t NUM_BYTES = (((array[5] & 0xFF) << 16) + ((array[4] & 0xFF) << 8) + array[3]);  
-				// TODO: check that NUM_TRANSFERS is around ~6-7 (actually should be EXACTLY 7, should NEVER be 8) 
-			int32_t NUM_TRANSFERS = NUM_BYTES / 512;  
-			LCD_WriteString("Now reading image"); 
 
-			// READING IMAGE HERE 
-
-				// we should mount the file system here:
-				LCD_FileMount(); 
-				
-				// and then open a new file HERE (making sure to grab the file handle): 
-				// first need to create the file name 
-				uint16_t CurrentHandle = LCD_FileOpen("IMG_2", 'w'); 
-				
-				uint16_t current_package_number = 0; 
-				int32_t num_bytes_left = NUM_BYTES; 
-				while (current_package_number < NUM_TRANSFERS) { 
-					UART_OutCUSTOMACK(current_package_number); 
-					if (num_bytes_left >= 512) { 
-						UART_InNBytes(512);
-						// write 512 bytes to file: 
-						LCD_FileWrite(512, CurrentHandle); 
-					}	else { 
-						UART_InNBytes(num_bytes_left);
-						// write N bytes to file: 
-						LCD_FileWrite(num_bytes_left, CurrentHandle); 
-					}					
-					++current_package_number; 
-					num_bytes_left -= 512; 
-				
-					// and then finally: clear image array in order to be ready for next transfer 
-					for (int32_t k = 0; k < 512; ++k) {  
-						image_array[k] = 0; 
-					}
-				
-					// close file: 
-					LCD_FileClose(CurrentHandle); 
-				
-					// reopen to append mode: 
-					LCD_FileOpen("IMG", 'a'); 
-				}
-			
-				// lets show the user the most recently taken image: 
-				LCD_DisplayImage(CurrentHandle); 
-				
-				// unmount file here? need to do it somewhere. in theory we have a power off button that will do it for us. 
-				
-				LCD_FileUnmount(); 	
-				
-				// TODO: right now we are mounting and unmounting every time we take a picture which... is bad design
-		}
-		// if they press a different button, view all photos in SD card 
-		if (PF0 == 0) { // switch 2 !!! TWO!!! 
-			char toObserve = 0x0; 
-			while (toObserve != 0x06) { 
-				LCD_Clear(); 
-				toObserve = LCD_InData();  
-			}
-			LCD_WriteString("Viewing Photos");
-		}
-		// if they press ANOTHER another button, we can go to the light settings 
-	}
-	*/ 
+int main() { 
 	
 	while (1) {} 
 	

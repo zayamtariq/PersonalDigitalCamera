@@ -47,7 +47,7 @@ void LCD_WriteString(char * string) {
 	UART3_DR_R = 0x00;
 	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART3_DR_R = 0x18;
-	for (int i = 0; string[i] != '\0'; i++) { 
+	for (int i = 0; string[i] != '\0' && i < 511; i++) { 
 		while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
 		UART3_DR_R = string[i];
 	}
@@ -91,7 +91,7 @@ void LCD_SetSectorAddress(uint32_t sector_location) {
 	LCD_InData(); 
 }
 
-void LCD_WriteSector(const uint8_t source[]) { 
+void LCD_WriteSector(uint8_t source[]) { 
 	int i;
 	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART3_DR_R = 0x00;
@@ -105,6 +105,22 @@ void LCD_WriteSector(const uint8_t source[]) {
 	LCD_InData(); 
 	LCD_InData(); 
 	if (LCD_InData() == 0) LCD_WriteString("Write Media Attempt Failed \n");  
+}
+
+void LCD_ReadSector(uint8_t (*to_populate)[512]) { 
+	int i; 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x00;
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x16;
+	
+	LCD_InData(); 
+	LCD_InData(); 
+	
+	for (i = 0; i < 512; ++i) { 
+		while ((UART3_FR_R & UART_FR_RXFE) != 0); 
+		(*to_populate)[i] = (UART3_DR_R&0xFF);
+	}
 }
 
 void LCD_FlushMedia() { 

@@ -1,0 +1,12 @@
+pc6 lcd_uart_rx
+pc7 lcd_uart_tx 
+
+lcd_readsector(returned_string) { 
+	for (i = 0; i < 512; ++i) { 
+		returned_string[i] = transmitted_byte; 
+	}
+}
+
+
+06 <- ack signal ?? 
+00 <- null terminator 

@@ -27,7 +27,10 @@ void LCD_MediaInit(void);
 void LCD_SetSectorAddress(uint32_t sector_location); 
 
 // write to address defined by most previous set sector address instruction 
-void LCD_WriteSector(const uint8_t source[]); 
+void LCD_WriteSector(uint8_t source[]); 
+
+// read from most previous set sector address 
+void LCD_ReadSector(uint8_t (*to_populate)[512]); 
 
 // flush after writing 
 void LCD_FlushMedia(void);

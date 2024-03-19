@@ -119,7 +119,7 @@ void PeriodicTask2_Stop(void){
 //        bus clock frequency in Hz
 //        baud rate in bps
 // Output: none
-void UART_Init(uint32_t busfrequency, uint32_t baud){
+void TexasUART_Init(uint32_t busfrequency, uint32_t baud){
   SYSCTL_RCGCUART_R |= 0x01; // activate UART0
   SYSCTL_RCGCGPIO_R |= 0x01; // activate port A
   UART0_CTL_R &= ~UART_CTL_UARTEN;      // disable UART
@@ -142,7 +142,7 @@ void UART_Init(uint32_t busfrequency, uint32_t baud){
 // Wait for new serial port input
 // Input: none
 // Output: ASCII code for key typed
-char UART_InChar(void){
+char TexasUART_InChar(void){
   while((UART0_FR_R&UART_FR_RXFE) != 0);
   return((char)(UART0_DR_R&0xFF));
 }
@@ -151,10 +151,11 @@ char UART_InChar(void){
 // Output 8-bit to serial port
 // Input: letter is an 8-bit ASCII character to be transferred
 // Output: none
-void UART_OutChar(char data){
+void TexasUART_OutChar(char data){
   while((UART0_FR_R&UART_FR_TXFF) != 0);
   UART0_DR_R = data;
 }
+
 
 // toggle bit 0 
 void TExaS_Task0(void){
@@ -275,7 +276,7 @@ void TExaS_Init(enum TExaSmode mode,uint32_t busfrequency){
   // grade mode will collect 10 seconds of profile (4 arrays)
   // logic analyzer will 10 kHz output to serial port (pack 4 bits): 8 bit bit7 set then LA, but 7 ASCII
 //  DumpNumber = dump;  // number of profile points to dump
-  UART_Init(busfrequency,115200);
+  TexasUART_Init(busfrequency,115200);
   LogicData |= 0x80; // bit 7 means logic data
   if(mode == LOGICANALYZER){
   // enable 10k periodic interrupt if logic analyzer mode
@@ -298,7 +299,7 @@ void TExaS_Init(enum TExaSmode mode,uint32_t busfrequency){
 void TExaS_SetTask(void(*task)(void)){
   PLL_Init(Bus80MHz);     // PLL on at 80 MHz
   ADC1_Init();
-  UART_Init(80000000,115200);
+  TexasUART_Init(80000000,115200);
   PeriodicTask2_Init(task,80000000,10000,5); // run scope at 10k
 }
 
