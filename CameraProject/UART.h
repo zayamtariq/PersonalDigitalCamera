@@ -2,9 +2,10 @@
 // #include "inc/tm4c123gh6pm.h" 
 // #include "inc/CortexM.h"
 #include "DMA_UART.h"
+#include "LCD_UART.h"
 
 extern uint8_t array[6]; 
-extern char image_array[512]; 
+extern uint8_t image_array[512]; 
 // extern char image_array_two[512]; 
 
 // initialize to baud rate of: 115200 bits per second   

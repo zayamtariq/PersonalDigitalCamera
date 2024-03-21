@@ -1,29 +1,30 @@
 Dependencies for Project 'Camera', Target 'Target 1': (DO NOT MODIFY !)
 CompilerVersion: 6150000::V6.15::ARMCLANG
-F (.\main.c)(0x65F9D5BE)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/zayam/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zayam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/main.o -MD)
+F (.\main.c)(0x65FBC949)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/zayam/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zayam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/main.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
 I (inc\PLL.h)(0x63C330E3)
-I (LCD_UART.h)(0x65F9D30E)
+I (UART.h)(0x65FBC4A4)
+I (DMA_UART.h)(0x652382CD)
 I (inc\tm4c123gh6pm.h)(0x63C330E3)
 I (inc\CortexM.h)(0x63C330E3)
-I (UART.h)(0x65767711)
-I (DMA_UART.h)(0x652382CD)
+I (LCD_UART.h)(0x65FBC046)
 I (inc\Timer1A.h)(0x649678F1)
 I (inc\Unified_Port_Init.h)(0x63C330E3)
 I (UART0.h)(0x652313FE)
-F (.\UART.h)(0x65767711)()
+F (.\UART.h)(0x65FBC4A4)()
 F (.\inc\PLL.h)(0x63C330E3)()
 F (.\inc\PLL.c)(0x6490E61E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/zayam/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zayam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/pll.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
 I (inc\..\inc\PLL.h)(0x63C330E3)
 I (inc\..\inc\tm4c123gh6pm.h)(0x63C330E3)
-F (.\UART.c)(0x6576878E)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/zayam/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zayam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/uart.o -MD)
+F (.\UART.c)(0x65FBC473)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/zayam/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zayam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/uart.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x5F379594)
-I (UART.h)(0x65767711)
+I (UART.h)(0x65FBC4A4)
 I (DMA_UART.h)(0x652382CD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
 I (inc\tm4c123gh6pm.h)(0x63C330E3)
 I (inc\CortexM.h)(0x63C330E3)
+I (LCD_UART.h)(0x65FBC046)
 F (.\inc\Timer1A.c)(0x64AE1325)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/zayam/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zayam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/timer1a.o -MD)
 I (inc\..\inc\tm4c123gh6pm.h)(0x63C330E3)
 I (inc\Timer1A.h)(0x649678F1)
@@ -37,15 +38,13 @@ F (.\inc\Unified_Port_Init.c)(0x65767C4E)(-xc -std=c99 --target=arm-arm-none-eab
 I (inc\tm4c123gh6pm.h)(0x63C330E3)
 I (inc\Unified_Port_Init.h)(0x63C330E3)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
-F (.\LCD_UART.h)(0x65F9D30E)()
-F (.\LCD_UART.c)(0x65F9D59F)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/zayam/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zayam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/lcd_uart.o -MD)
+F (.\LCD_UART.h)(0x65FBC046)()
+F (.\LCD_UART.c)(0x65FBC04A)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/zayam/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zayam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/lcd_uart.o -MD)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdio.h)(0x5F379594)
-I (LCD_UART.h)(0x65F9D30E)
+I (LCD_UART.h)(0x65FBC046)
 I (C:\Keil_v5\ARM\ARMCLANG\include\stdint.h)(0x5F379588)
 I (inc\tm4c123gh6pm.h)(0x63C330E3)
 I (inc\CortexM.h)(0x63C330E3)
-I (UART.h)(0x65767711)
-I (DMA_UART.h)(0x652382CD)
 F (.\DMA_UART.h)(0x652382CD)()
 F (.\DMA_UART.c)(0x65238BE7)(-xc -std=c99 --target=arm-arm-none-eabi -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -c-fno-rtti -funsigned-char -fshort-enums -fshort-wchar-gdwarf-3 -O0 -ffunction-sections -Weverything -Wno-packed -Wno-reserved-id-macro -Wno-unused-macros -Wno-documentation-unknown-command -Wno-documentation -Wno-license-management -Wno-parentheses-equality -I./RTE/_Target_1-IC:/Users/zayam/AppData/Local/Arm/Packs/ARM/CMSIS/5.7.0/CMSIS/Core/Include-IC:/Users/zayam/AppData/Local/Arm/Packs/Keil/TM4C_DFP/1.1.0/Device/Include/TM4C123-D__UVISION_VERSION="533" -D_RTE_ -DTM4C123GH6PM -D_RTE_-o ./objects/dma_uart.o -MD)
 I (DMA_UART.h)(0x652382CD)

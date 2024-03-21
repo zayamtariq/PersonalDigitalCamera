@@ -27,8 +27,9 @@ Project File Date:  12/11/2023
 <h2>Output:</h2>
 *** Using Compiler 'V6.15', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
-main.c(4): warning: In file included from...
-./LCD_UART.h(69): warning: no newline at end of file [-Wnewline-eof]
+main.c(3): warning: In file included from...
+./UART.h(5): warning: In file included from...
+./LCD_UART.h(88): warning: no newline at end of file [-Wnewline-eof]
 */ 
    ^
 main.c(63): warning: no previous prototype for function 'LCD_main1' [-Wmissing-prototypes]
@@ -41,30 +42,80 @@ static
 main.c(63): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
 void LCD_main1() { 
               ^
-main.c(214): warning: passing 'char [512]' to parameter of type 'uint8_t *' (aka 'unsigned char *') converts between pointers to integer types with different sign [-Wpointer-sign]
-                LCD_WriteSector(image_array); 
-                                ^~~~~~~~~~~
-./LCD_UART.h(30): note: passing argument to parameter 'source' here
-void LCD_WriteSector(uint8_t source[]); 
-                             ^
-main.c(98): warning: no previous prototype for function 'LCD_Camera_main2' [-Wmissing-prototypes]
+main.c(99): warning: no previous prototype for function 'LCD_Camera_main2' [-Wmissing-prototypes]
 void LCD_Camera_main2() { 
      ^
-main.c(98): note: declare 'static' if the function is not intended to be used outside of this translation unit
+main.c(99): note: declare 'static' if the function is not intended to be used outside of this translation unit
 void LCD_Camera_main2() { 
 ^
 static 
-main.c(98): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+main.c(99): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
 void LCD_Camera_main2() { 
                      ^
-main.c(448): warning: 'return' will never be executed [-Wunreachable-code-return]
+main.c(255): warning: no previous prototype for function 'sd_card_main3' [-Wmissing-prototypes]
+void sd_card_main3() { 
+     ^
+main.c(255): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void sd_card_main3() { 
+^
+static 
+main.c(255): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void sd_card_main3() { 
+                  ^
+main.c(255): warning: function 'sd_card_main3' could be declared with attribute 'noreturn' [-Wmissing-noreturn]
+void sd_card_main3() { 
+                     ^
+main.c(291): warning: no previous prototype for function 'file_system_main4' [-Wmissing-prototypes]
+void file_system_main4() { 
+     ^
+main.c(291): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void file_system_main4() { 
+^
+static 
+main.c(291): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void file_system_main4() { 
+                      ^
+main.c(329): warning: no previous prototype for function 'Initialize_Camera_Routine' [-Wmissing-prototypes]
+void Initialize_Camera_Routine() { 
+     ^
+main.c(329): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Initialize_Camera_Routine() { 
+^
+static 
+main.c(329): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void Initialize_Camera_Routine() { 
+                              ^
+main.c(387): warning: unused variable 'NUM_TRANSFERS' [-Wunused-variable]
+        int32_t NUM_TRANSFERS = NUM_BYTES / 512;  
+                ^
+main.c(363): warning: no previous prototype for function 'Take_Photo_Routine' [-Wmissing-prototypes]
+void Take_Photo_Routine() { 
+     ^
+main.c(363): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void Take_Photo_Routine() { 
+^
+static 
+main.c(363): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void Take_Photo_Routine() { 
+                       ^
+main.c(442): warning: no previous prototype for function 'sdcard_camera_main5' [-Wmissing-prototypes]
+void sdcard_camera_main5() { 
+     ^
+main.c(442): note: declare 'static' if the function is not intended to be used outside of this translation unit
+void sdcard_camera_main5() { 
+^
+static 
+main.c(442): warning: this old-style function definition is not preceded by a prototype [-Wstrict-prototypes]
+void sdcard_camera_main5() { 
+                        ^
+main.c(474): warning: 'return' will never be executed [-Wunreachable-code-return]
         return 0; 
                ^
-7 warnings generated.
+18 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=4014 RO-data=178 RW-data=516 ZI-data=1132  
-".\Objects\Camera.axf" - 0 Error(s), 7 Warning(s).
+Program Size: Code=7430 RO-data=590 RW-data=4 ZI-data=1652  
+".\Objects\Camera.axf" - 0 Error(s), 18 Warning(s).
 
 <h2>Software Packages used:</h2>
 

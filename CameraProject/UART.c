@@ -3,7 +3,7 @@
 
 // these arrays are, i hope, stored in RAM 
 uint8_t array[6];
-char image_array[512]; 
+uint8_t image_array[512]; 
 // char image_array_two[512]; 
 
 #define UART_FR_TXFF            0x00000020  // UART Transmit FIFO Full
@@ -101,6 +101,12 @@ void UART_OutInitial() {
 	UART4_DR_R = 0x05; // we are using a 320 x 240 display 
 	
 	UART_InData(); 
+	
+	if (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x01 || array[4] != 0x00 || array[5] != 0x00) { 
+		LCD_Clear(); 
+		LCD_WriteString("Image Parameters have gone wrong. Please shut down system. \n"); 
+		while (1) {} 
+	}
 } 
 
 // choosing 512 bytes 
@@ -119,6 +125,12 @@ void UART_OutPackageSize() {
 	UART4_DR_R = 0x00; 
 	
 	UART_InData(); 
+	
+	if (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x06 || array[4] != 0x00 || array[5] != 0x00) { 
+		LCD_Clear(); 
+		LCD_WriteString("Package Size has gone wrong. Please shut down system. \n"); 
+		while (1) {} 
+	}
 }
 
 void UART_OutSnapshot() { 
@@ -136,6 +148,12 @@ void UART_OutSnapshot() {
 	UART4_DR_R = 0x00; 
 	
 	UART_InData(); 
+	
+	if (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x05 || array[4] != 0x00 || array[5] != 0x00) { 
+		LCD_Clear(); 
+		LCD_WriteString("Snapshot has gone wrong. Please shut down system. \n"); 
+		while (1) {} 
+	}
 }
 
 void UART_OutGetPic() { 
@@ -153,6 +171,12 @@ void UART_OutGetPic() {
 	UART4_DR_R = 0x00; 
 	
 	UART_InData(); 
+	
+	if (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x04 || array[4] != 0x00 || array[5] != 0x00) { 
+		LCD_Clear(); 
+		LCD_WriteString("Get Picture has gone wrong. Please shut down system. \n"); 
+		while (1) {} 
+	}	
 }
 
 void UART_OutCUSTOMACK(uint16_t num_package) { 

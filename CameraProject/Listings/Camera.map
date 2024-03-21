@@ -45,18 +45,73 @@ Section Cross References
     main.o(.text.LCD_Camera_main2) refers to lcd_uart.o(.text.LCD_FlushMedia) for LCD_FlushMedia
     main.o(.text.LCD_Camera_main2) refers to lcd_uart.o(.text.LCD_DisplayImage) for LCD_DisplayImage
     main.o(.ARM.exidx.text.LCD_Camera_main2) refers to main.o(.text.LCD_Camera_main2) for [Anonymous Symbol]
-    main.o(.text.main) refers to startup.o(.text) for DisableInterrupts
-    main.o(.text.main) refers to pll.o(.text.PLL_Init) for PLL_Init
-    main.o(.text.main) refers to unified_port_init.o(.text.Unified_Port_Init) for Unified_Port_Init
-    main.o(.text.main) refers to lcd_uart.o(.text.LCD_UART_Init) for LCD_UART_Init
-    main.o(.text.main) refers to lcd_uart.o(.text.LCD_Clear) for LCD_Clear
-    main.o(.text.main) refers to main.o(.rodata.str1.1) for .L.str.23
-    main.o(.text.main) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
-    main.o(.text.main) refers to lcd_uart.o(.text.LCD_MediaInit) for LCD_MediaInit
-    main.o(.text.main) refers to lcd_uart.o(.text.LCD_SetSectorAddress) for LCD_SetSectorAddress
-    main.o(.text.main) refers to main.o(.data.LCD_TestParagraph) for LCD_TestParagraph
-    main.o(.text.main) refers to lcd_uart.o(.text.LCD_WriteSector) for LCD_WriteSector
-    main.o(.text.main) refers to lcd_uart.o(.text.LCD_ReadSector) for LCD_ReadSector
+    main.o(.text.sd_card_main3) refers to startup.o(.text) for DisableInterrupts
+    main.o(.text.sd_card_main3) refers to pll.o(.text.PLL_Init) for PLL_Init
+    main.o(.text.sd_card_main3) refers to unified_port_init.o(.text.Unified_Port_Init) for Unified_Port_Init
+    main.o(.text.sd_card_main3) refers to lcd_uart.o(.text.LCD_UART_Init) for LCD_UART_Init
+    main.o(.text.sd_card_main3) refers to lcd_uart.o(.text.LCD_Clear) for LCD_Clear
+    main.o(.text.sd_card_main3) refers to main.o(.rodata.str1.1) for .L.str.23
+    main.o(.text.sd_card_main3) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
+    main.o(.text.sd_card_main3) refers to lcd_uart.o(.text.LCD_MediaInit) for LCD_MediaInit
+    main.o(.text.sd_card_main3) refers to lcd_uart.o(.text.LCD_SetSectorAddress) for LCD_SetSectorAddress
+    main.o(.text.sd_card_main3) refers to main.o(.data.LCD_TestParagraph) for LCD_TestParagraph
+    main.o(.text.sd_card_main3) refers to lcd_uart.o(.text.LCD_WriteSector) for LCD_WriteSector
+    main.o(.text.sd_card_main3) refers to lcd_uart.o(.text.LCD_ReadSector) for LCD_ReadSector
+    main.o(.ARM.exidx.text.sd_card_main3) refers to main.o(.text.sd_card_main3) for [Anonymous Symbol]
+    main.o(.text.file_system_main4) refers to startup.o(.text) for DisableInterrupts
+    main.o(.text.file_system_main4) refers to pll.o(.text.PLL_Init) for PLL_Init
+    main.o(.text.file_system_main4) refers to unified_port_init.o(.text.Unified_Port_Init) for Unified_Port_Init
+    main.o(.text.file_system_main4) refers to lcd_uart.o(.text.LCD_UART_Init) for LCD_UART_Init
+    main.o(.text.file_system_main4) refers to lcd_uart.o(.text.LCD_Clear) for LCD_Clear
+    main.o(.text.file_system_main4) refers to lcd_uart.o(.text.LCD_FileMount) for LCD_FileMount
+    main.o(.text.file_system_main4) refers to lcd_uart.o(.text.LCD_TotalFileCount) for LCD_TotalFileCount
+    main.o(.text.file_system_main4) refers to main.o(.rodata.str1.1) for .L.str.25
+    main.o(.text.file_system_main4) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
+    main.o(.text.file_system_main4) refers to lcd_uart.o(.text.LCD_FileExists) for LCD_FileExists
+    main.o(.text.file_system_main4) refers to lcd_uart.o(.text.LCD_FileOpen) for LCD_FileOpen
+    main.o(.text.file_system_main4) refers to lcd_uart.o(.text.LCD_FileDisplayImage) for LCD_FileDisplayImage
+    main.o(.text.file_system_main4) refers to lcd_uart.o(.text.LCD_FileClose) for LCD_FileClose
+    main.o(.text.file_system_main4) refers to lcd_uart.o(.text.LCD_FileUnmount) for LCD_FileUnmount
+    main.o(.ARM.exidx.text.file_system_main4) refers to main.o(.text.file_system_main4) for [Anonymous Symbol]
+    main.o(.text.Initialize_Camera_Routine) refers to timer1a.o(.data.SyncTime) for SyncTime
+    main.o(.text.Initialize_Camera_Routine) refers to uart.o(.text.UART_OutSync) for UART_OutSync
+    main.o(.text.Initialize_Camera_Routine) refers to timer1a.o(.text.Timer1A_Init) for Timer1A_Init
+    main.o(.text.Initialize_Camera_Routine) refers to uart.o(.text.Camera_HardwareReset) for Camera_HardwareReset
+    main.o(.text.Initialize_Camera_Routine) refers to uart.o(.text.UART_InData) for UART_InData
+    main.o(.text.Initialize_Camera_Routine) refers to main.o(.rodata.str1.1) for .L.str.3
+    main.o(.text.Initialize_Camera_Routine) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
+    main.o(.text.Initialize_Camera_Routine) refers to uart.o(.bss.array) for array
+    main.o(.text.Initialize_Camera_Routine) refers to timer1a.o(.text.Timer1A_Stop) for Timer1A_Stop
+    main.o(.text.Initialize_Camera_Routine) refers to lcd_uart.o(.text.LCD_Clear) for LCD_Clear
+    main.o(.text.Initialize_Camera_Routine) refers to uart.o(.text.UART_OutACK) for UART_OutACK
+    main.o(.ARM.exidx.text.Initialize_Camera_Routine) refers to main.o(.text.Initialize_Camera_Routine) for [Anonymous Symbol]
+    main.o(.text.Take_Photo_Routine) refers to uart.o(.text.UART_OutInitial) for UART_OutInitial
+    main.o(.text.Take_Photo_Routine) refers to uart.o(.text.UART_OutPackageSize) for UART_OutPackageSize
+    main.o(.text.Take_Photo_Routine) refers to uart.o(.text.UART_OutSnapshot) for UART_OutSnapshot
+    main.o(.text.Take_Photo_Routine) refers to uart.o(.text.UART_OutGetPic) for UART_OutGetPic
+    main.o(.text.Take_Photo_Routine) refers to uart.o(.text.UART_InData) for UART_InData
+    main.o(.text.Take_Photo_Routine) refers to uart.o(.bss.array) for array
+    main.o(.text.Take_Photo_Routine) refers to lcd_uart.o(.text.LCD_Clear) for LCD_Clear
+    main.o(.text.Take_Photo_Routine) refers to main.o(.rodata.str1.1) for .L.str.18
+    main.o(.text.Take_Photo_Routine) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
+    main.o(.text.Take_Photo_Routine) refers to lcd_uart.o(.text.LCD_MediaInit) for LCD_MediaInit
+    main.o(.text.Take_Photo_Routine) refers to lcd_uart.o(.text.LCD_SetSectorAddress) for LCD_SetSectorAddress
+    main.o(.text.Take_Photo_Routine) refers to uart.o(.text.UART_OutCUSTOMACK) for UART_OutCUSTOMACK
+    main.o(.text.Take_Photo_Routine) refers to uart.o(.text.UART_InNBytes) for UART_InNBytes
+    main.o(.text.Take_Photo_Routine) refers to uart.o(.bss.image_array) for image_array
+    main.o(.text.Take_Photo_Routine) refers to lcd_uart.o(.text.LCD_WriteSector) for LCD_WriteSector
+    main.o(.ARM.exidx.text.Take_Photo_Routine) refers to main.o(.text.Take_Photo_Routine) for [Anonymous Symbol]
+    main.o(.text.sdcard_camera_main5) refers to startup.o(.text) for DisableInterrupts
+    main.o(.text.sdcard_camera_main5) refers to pll.o(.text.PLL_Init) for PLL_Init
+    main.o(.text.sdcard_camera_main5) refers to unified_port_init.o(.text.Unified_Port_Init) for Unified_Port_Init
+    main.o(.text.sdcard_camera_main5) refers to lcd_uart.o(.text.LCD_UART_Init) for LCD_UART_Init
+    main.o(.text.sdcard_camera_main5) refers to uart.o(.text.UART_Init) for UART_Init
+    main.o(.text.sdcard_camera_main5) refers to lcd_uart.o(.text.LCD_Clear) for LCD_Clear
+    main.o(.text.sdcard_camera_main5) refers to main.o(.text.Initialize_Camera_Routine) for Initialize_Camera_Routine
+    main.o(.text.sdcard_camera_main5) refers to main.o(.text.Take_Photo_Routine) for Take_Photo_Routine
+    main.o(.text.sdcard_camera_main5) refers to lcd_uart.o(.text.LCD_DisplayImage) for LCD_DisplayImage
+    main.o(.ARM.exidx.text.sdcard_camera_main5) refers to main.o(.text.sdcard_camera_main5) for [Anonymous Symbol]
+    main.o(.text.main) refers to main.o(.text.sdcard_camera_main5) for sdcard_camera_main5
     main.o(.ARM.exidx.text.main) refers to main.o(.text.main) for [Anonymous Symbol]
     pll.o(.ARM.exidx.text.PLL_Init) refers to pll.o(.text.PLL_Init) for [Anonymous Symbol]
     uart.o(.ARM.exidx.text.UART_Init) refers to uart.o(.text.UART_Init) for [Anonymous Symbol]
@@ -65,12 +120,28 @@ Section Cross References
     uart.o(.ARM.exidx.text.UART_OutSync) refers to uart.o(.text.UART_OutSync) for [Anonymous Symbol]
     uart.o(.ARM.exidx.text.UART_OutACK) refers to uart.o(.text.UART_OutACK) for [Anonymous Symbol]
     uart.o(.text.UART_OutInitial) refers to uart.o(.text.UART_InData) for UART_InData
+    uart.o(.text.UART_OutInitial) refers to uart.o(.bss.array) for array
+    uart.o(.text.UART_OutInitial) refers to lcd_uart.o(.text.LCD_Clear) for LCD_Clear
+    uart.o(.text.UART_OutInitial) refers to uart.o(.rodata.str1.1) for .L.str
+    uart.o(.text.UART_OutInitial) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
     uart.o(.ARM.exidx.text.UART_OutInitial) refers to uart.o(.text.UART_OutInitial) for [Anonymous Symbol]
     uart.o(.text.UART_OutPackageSize) refers to uart.o(.text.UART_InData) for UART_InData
+    uart.o(.text.UART_OutPackageSize) refers to uart.o(.bss.array) for array
+    uart.o(.text.UART_OutPackageSize) refers to lcd_uart.o(.text.LCD_Clear) for LCD_Clear
+    uart.o(.text.UART_OutPackageSize) refers to uart.o(.rodata.str1.1) for .L.str.1
+    uart.o(.text.UART_OutPackageSize) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
     uart.o(.ARM.exidx.text.UART_OutPackageSize) refers to uart.o(.text.UART_OutPackageSize) for [Anonymous Symbol]
     uart.o(.text.UART_OutSnapshot) refers to uart.o(.text.UART_InData) for UART_InData
+    uart.o(.text.UART_OutSnapshot) refers to uart.o(.bss.array) for array
+    uart.o(.text.UART_OutSnapshot) refers to lcd_uart.o(.text.LCD_Clear) for LCD_Clear
+    uart.o(.text.UART_OutSnapshot) refers to uart.o(.rodata.str1.1) for .L.str.2
+    uart.o(.text.UART_OutSnapshot) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
     uart.o(.ARM.exidx.text.UART_OutSnapshot) refers to uart.o(.text.UART_OutSnapshot) for [Anonymous Symbol]
     uart.o(.text.UART_OutGetPic) refers to uart.o(.text.UART_InData) for UART_InData
+    uart.o(.text.UART_OutGetPic) refers to uart.o(.bss.array) for array
+    uart.o(.text.UART_OutGetPic) refers to lcd_uart.o(.text.LCD_Clear) for LCD_Clear
+    uart.o(.text.UART_OutGetPic) refers to uart.o(.rodata.str1.1) for .L.str.3
+    uart.o(.text.UART_OutGetPic) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
     uart.o(.ARM.exidx.text.UART_OutGetPic) refers to uart.o(.text.UART_OutGetPic) for [Anonymous Symbol]
     uart.o(.ARM.exidx.text.UART_OutCUSTOMACK) refers to uart.o(.text.UART_OutCUSTOMACK) for [Anonymous Symbol]
     uart.o(.ARM.exidx.text.UART_ReadSingleByte) refers to uart.o(.text.UART_ReadSingleByte) for [Anonymous Symbol]
@@ -134,6 +205,38 @@ Section Cross References
     lcd_uart.o(.text.LCD_DisplayImage) refers to lcd_uart.o(.rodata.str1.1) for .L.str.5
     lcd_uart.o(.text.LCD_DisplayImage) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
     lcd_uart.o(.ARM.exidx.text.LCD_DisplayImage) refers to lcd_uart.o(.text.LCD_DisplayImage) for [Anonymous Symbol]
+    lcd_uart.o(.text.LCD_FileMount) refers to lcd_uart.o(.text.LCD_InData) for LCD_InData
+    lcd_uart.o(.text.LCD_FileMount) refers to lcd_uart.o(.rodata.str1.1) for .L.str.6
+    lcd_uart.o(.text.LCD_FileMount) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
+    lcd_uart.o(.ARM.exidx.text.LCD_FileMount) refers to lcd_uart.o(.text.LCD_FileMount) for [Anonymous Symbol]
+    lcd_uart.o(.text.LCD_FileDisplayImage) refers to lcd_uart.o(.text.LCD_InData) for LCD_InData
+    lcd_uart.o(.text.LCD_FileDisplayImage) refers to lcd_uart.o(.rodata.str1.1) for .L.str.9
+    lcd_uart.o(.text.LCD_FileDisplayImage) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
+    lcd_uart.o(.ARM.exidx.text.LCD_FileDisplayImage) refers to lcd_uart.o(.text.LCD_FileDisplayImage) for [Anonymous Symbol]
+    lcd_uart.o(.text.LCD_FileUnmount) refers to lcd_uart.o(.text.LCD_InData) for LCD_InData
+    lcd_uart.o(.text.LCD_FileUnmount) refers to lcd_uart.o(.rodata.str1.1) for .L.str.11
+    lcd_uart.o(.text.LCD_FileUnmount) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
+    lcd_uart.o(.ARM.exidx.text.LCD_FileUnmount) refers to lcd_uart.o(.text.LCD_FileUnmount) for [Anonymous Symbol]
+    lcd_uart.o(.text.LCD_FileExists) refers to lcd_uart.o(.text.LCD_InData) for LCD_InData
+    lcd_uart.o(.text.LCD_FileExists) refers to lcd_uart.o(.rodata.str1.1) for .L.str.13
+    lcd_uart.o(.text.LCD_FileExists) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
+    lcd_uart.o(.ARM.exidx.text.LCD_FileExists) refers to lcd_uart.o(.text.LCD_FileExists) for [Anonymous Symbol]
+    lcd_uart.o(.text.LCD_TotalFileCount) refers to lcd_uart.o(.text.LCD_InData) for LCD_InData
+    lcd_uart.o(.text.LCD_TotalFileCount) refers to lcd_uart.o(.rodata.str1.1) for .L.str.16
+    lcd_uart.o(.text.LCD_TotalFileCount) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
+    lcd_uart.o(.ARM.exidx.text.LCD_TotalFileCount) refers to lcd_uart.o(.text.LCD_TotalFileCount) for [Anonymous Symbol]
+    lcd_uart.o(.text.LCD_FileOpen) refers to lcd_uart.o(.text.LCD_InData) for LCD_InData
+    lcd_uart.o(.text.LCD_FileOpen) refers to lcd_uart.o(.rodata.str1.1) for .L.str.17
+    lcd_uart.o(.text.LCD_FileOpen) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
+    lcd_uart.o(.ARM.exidx.text.LCD_FileOpen) refers to lcd_uart.o(.text.LCD_FileOpen) for [Anonymous Symbol]
+    lcd_uart.o(.text.LCD_FileClose) refers to lcd_uart.o(.text.LCD_InData) for LCD_InData
+    lcd_uart.o(.text.LCD_FileClose) refers to lcd_uart.o(.rodata.str1.1) for .L.str.18
+    lcd_uart.o(.text.LCD_FileClose) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
+    lcd_uart.o(.ARM.exidx.text.LCD_FileClose) refers to lcd_uart.o(.text.LCD_FileClose) for [Anonymous Symbol]
+    lcd_uart.o(.text.LCD_FileError) refers to lcd_uart.o(.text.LCD_InData) for LCD_InData
+    lcd_uart.o(.text.LCD_FileError) refers to lcd_uart.o(.rodata.str1.1) for .L.str.20
+    lcd_uart.o(.text.LCD_FileError) refers to lcd_uart.o(.text.LCD_WriteString) for LCD_WriteString
+    lcd_uart.o(.ARM.exidx.text.LCD_FileError) refers to lcd_uart.o(.text.LCD_FileError) for [Anonymous Symbol]
     dma_uart.o(.text.DMA_UART_Init) refers to dma_uart.o(.bss.ucControlTable) for ucControlTable
     dma_uart.o(.ARM.exidx.text.DMA_UART_Init) refers to dma_uart.o(.text.DMA_UART_Init) for [Anonymous Symbol]
     dma_uart.o(.text.DMA_UART_Transfer) refers to dma_uart.o(.bss.ucControlTable) for ucControlTable
@@ -354,42 +457,35 @@ Removing Unused input sections from the image.
     Removing main.o(.ARM.exidx.text.LCD_main1), (8 bytes).
     Removing main.o(.text.LCD_Camera_main2), (1410 bytes).
     Removing main.o(.ARM.exidx.text.LCD_Camera_main2), (8 bytes).
+    Removing main.o(.text.sd_card_main3), (104 bytes).
+    Removing main.o(.ARM.exidx.text.sd_card_main3), (8 bytes).
+    Removing main.o(.text.file_system_main4), (136 bytes).
+    Removing main.o(.ARM.exidx.text.file_system_main4), (8 bytes).
+    Removing main.o(.ARM.exidx.text.Initialize_Camera_Routine), (8 bytes).
+    Removing main.o(.ARM.exidx.text.Take_Photo_Routine), (8 bytes).
+    Removing main.o(.ARM.exidx.text.sdcard_camera_main5), (8 bytes).
     Removing main.o(.ARM.exidx.text.main), (8 bytes).
+    Removing main.o(.data.LCD_TestParagraph), (512 bytes).
     Removing main.o(.ARM.use_no_argv), (4 bytes).
     Removing pll.o(.text), (0 bytes).
     Removing pll.o(.ARM.exidx.text.PLL_Init), (8 bytes).
     Removing uart.o(.text), (0 bytes).
-    Removing uart.o(.text.UART_Init), (178 bytes).
     Removing uart.o(.ARM.exidx.text.UART_Init), (8 bytes).
-    Removing uart.o(.text.UART_InData), (230 bytes).
     Removing uart.o(.ARM.exidx.text.UART_InData), (8 bytes).
-    Removing uart.o(.text.UART_OutSync), (182 bytes).
     Removing uart.o(.ARM.exidx.text.UART_OutSync), (8 bytes).
-    Removing uart.o(.text.UART_OutACK), (182 bytes).
     Removing uart.o(.ARM.exidx.text.UART_OutACK), (8 bytes).
-    Removing uart.o(.text.UART_OutInitial), (188 bytes).
     Removing uart.o(.ARM.exidx.text.UART_OutInitial), (8 bytes).
-    Removing uart.o(.text.UART_OutPackageSize), (188 bytes).
     Removing uart.o(.ARM.exidx.text.UART_OutPackageSize), (8 bytes).
-    Removing uart.o(.text.UART_OutSnapshot), (188 bytes).
     Removing uart.o(.ARM.exidx.text.UART_OutSnapshot), (8 bytes).
-    Removing uart.o(.text.UART_OutGetPic), (188 bytes).
     Removing uart.o(.ARM.exidx.text.UART_OutGetPic), (8 bytes).
-    Removing uart.o(.text.UART_OutCUSTOMACK), (392 bytes).
     Removing uart.o(.ARM.exidx.text.UART_OutCUSTOMACK), (8 bytes).
     Removing uart.o(.text.UART_ReadSingleByte), (32 bytes).
     Removing uart.o(.ARM.exidx.text.UART_ReadSingleByte), (8 bytes).
-    Removing uart.o(.text.UART_InNBytes), (74 bytes).
     Removing uart.o(.ARM.exidx.text.UART_InNBytes), (8 bytes).
-    Removing uart.o(.text.Camera_HardwareReset), (80 bytes).
     Removing uart.o(.ARM.exidx.text.Camera_HardwareReset), (8 bytes).
-    Removing uart.o(.bss.array), (6 bytes).
-    Removing uart.o(.bss.image_array), (512 bytes).
     Removing timer1a.o(.text), (0 bytes).
-    Removing timer1a.o(.text.Timer1A_Init), (160 bytes).
     Removing timer1a.o(.ARM.exidx.text.Timer1A_Init), (8 bytes).
     Removing timer1a.o(.ARM.exidx.text.Timer1A_Handler), (8 bytes).
-    Removing timer1a.o(.text.Timer1A_Stop), (28 bytes).
     Removing timer1a.o(.ARM.exidx.text.Timer1A_Stop), (8 bytes).
     Removing cortexm.o(.text), (0 bytes).
     Removing unified_port_init.o(.text), (0 bytes).
@@ -410,11 +506,27 @@ Removing Unused input sections from the image.
     Removing lcd_uart.o(.ARM.exidx.text.LCD_MediaInit), (8 bytes).
     Removing lcd_uart.o(.ARM.exidx.text.LCD_SetSectorAddress), (8 bytes).
     Removing lcd_uart.o(.ARM.exidx.text.LCD_WriteSector), (8 bytes).
+    Removing lcd_uart.o(.text.LCD_ReadSector), (152 bytes).
     Removing lcd_uart.o(.ARM.exidx.text.LCD_ReadSector), (8 bytes).
     Removing lcd_uart.o(.text.LCD_FlushMedia), (112 bytes).
     Removing lcd_uart.o(.ARM.exidx.text.LCD_FlushMedia), (8 bytes).
-    Removing lcd_uart.o(.text.LCD_DisplayImage), (256 bytes).
     Removing lcd_uart.o(.ARM.exidx.text.LCD_DisplayImage), (8 bytes).
+    Removing lcd_uart.o(.text.LCD_FileMount), (158 bytes).
+    Removing lcd_uart.o(.ARM.exidx.text.LCD_FileMount), (8 bytes).
+    Removing lcd_uart.o(.text.LCD_FileDisplayImage), (344 bytes).
+    Removing lcd_uart.o(.ARM.exidx.text.LCD_FileDisplayImage), (8 bytes).
+    Removing lcd_uart.o(.text.LCD_FileUnmount), (110 bytes).
+    Removing lcd_uart.o(.ARM.exidx.text.LCD_FileUnmount), (8 bytes).
+    Removing lcd_uart.o(.text.LCD_FileExists), (246 bytes).
+    Removing lcd_uart.o(.ARM.exidx.text.LCD_FileExists), (8 bytes).
+    Removing lcd_uart.o(.text.LCD_TotalFileCount), (256 bytes).
+    Removing lcd_uart.o(.ARM.exidx.text.LCD_TotalFileCount), (8 bytes).
+    Removing lcd_uart.o(.text.LCD_FileOpen), (268 bytes).
+    Removing lcd_uart.o(.ARM.exidx.text.LCD_FileOpen), (8 bytes).
+    Removing lcd_uart.o(.text.LCD_FileClose), (208 bytes).
+    Removing lcd_uart.o(.ARM.exidx.text.LCD_FileClose), (8 bytes).
+    Removing lcd_uart.o(.text.LCD_FileError), (110 bytes).
+    Removing lcd_uart.o(.ARM.exidx.text.LCD_FileError), (8 bytes).
     Removing dma_uart.o(.text), (0 bytes).
     Removing dma_uart.o(.text.DMA_UART_Init), (160 bytes).
     Removing dma_uart.o(.ARM.exidx.text.DMA_UART_Init), (8 bytes).
@@ -526,7 +638,7 @@ Removing Unused input sections from the image.
     Removing texas.o(.ARM.exidx.text.TExaS_Stop), (8 bytes).
     Removing texas.o(.bss.LogicData), (1 bytes).
 
-176 unused section(s) (total 9339 bytes) removed from the image.
+185 unused section(s) (total 9015 bytes) removed from the image.
 
 ==============================================================================
 
@@ -656,68 +768,109 @@ Image Symbol Table
     .text                                    0x000003d0   Section        0  sys_exit.o(.text)
     .text                                    0x000003dc   Section        2  use_no_semi.o(.text)
     .text                                    0x000003de   Section        0  indicate_semi.o(.text)
-    [Anonymous Symbol]                       0x000003e0   Section        0  lcd_uart.o(.text.LCD_Clear)
-    [Anonymous Symbol]                       0x0000042c   Section        0  lcd_uart.o(.text.LCD_InData)
-    [Anonymous Symbol]                       0x00000450   Section        0  lcd_uart.o(.text.LCD_MediaInit)
-    [Anonymous Symbol]                       0x000004e0   Section        0  lcd_uart.o(.text.LCD_ReadSector)
-    [Anonymous Symbol]                       0x00000578   Section        0  lcd_uart.o(.text.LCD_SetSectorAddress)
-    [Anonymous Symbol]                       0x0000065c   Section        0  lcd_uart.o(.text.LCD_UART_Init)
-    [Anonymous Symbol]                       0x00000700   Section        0  lcd_uart.o(.text.LCD_WriteSector)
-    [Anonymous Symbol]                       0x000007b4   Section        0  lcd_uart.o(.text.LCD_WriteString)
-    [Anonymous Symbol]                       0x00000894   Section        0  pll.o(.text.PLL_Init)
-    [Anonymous Symbol]                       0x0000091c   Section        0  unified_port_init.o(.text.Port_A_Init)
-    [Anonymous Symbol]                       0x00000a48   Section        0  unified_port_init.o(.text.Port_B_Init)
-    [Anonymous Symbol]                       0x00000bb4   Section        0  unified_port_init.o(.text.Port_C_Init)
-    [Anonymous Symbol]                       0x00000c38   Section        0  unified_port_init.o(.text.Port_D_Init)
-    [Anonymous Symbol]                       0x00000d30   Section        0  unified_port_init.o(.text.Port_E_Init)
-    [Anonymous Symbol]                       0x00000e1c   Section        0  unified_port_init.o(.text.Port_F_Init)
-    [Anonymous Symbol]                       0x00000ea4   Section        0  timer1a.o(.text.Timer1A_Handler)
-    [Anonymous Symbol]                       0x00000ee4   Section        0  texas.o(.text.Timer5A_Handler)
-    [Anonymous Symbol]                       0x00000f00   Section        0  unified_port_init.o(.text.Unified_Port_Init)
-    [Anonymous Symbol]                       0x00000f1c   Section        0  main.o(.text.main)
-    $v0                                      0x00000f94   Number         0  fpinit.o(x$fpl$fpinit)
-    x$fpl$fpinit                             0x00000f94   Section       26  fpinit.o(x$fpl$fpinit)
-    .L.str                                   0x00000fae   Data          20  main.o(.rodata.str1.1)
-    .L.str.25                                0x00000fae   Data          27  main.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x00000fae   Section        0  main.o(.rodata.str1.1)
-    .L.str.1                                 0x00000fc2   Data          24  main.o(.rodata.str1.1)
-    .L.str.23                                0x00000fc9   Data           5  main.o(.rodata.str1.1)
-    .L.str.2                                 0x00000fce   Data          23  lcd_uart.o(.rodata.str1.1)
-    [Anonymous Symbol]                       0x00000fce   Section        0  lcd_uart.o(.rodata.str1.1)
-    .L.str.2                                 0x00000fda   Data          23  main.o(.rodata.str1.1)
-    .L.str.1                                 0x00000fe5   Data          28  lcd_uart.o(.rodata.str1.1)
-    .L.str.3                                 0x00000ff1   Data          13  main.o(.rodata.str1.1)
-    .L.str.4                                 0x00000ffe   Data          15  main.o(.rodata.str1.1)
-    .L.str.3                                 0x00001001   Data          29  lcd_uart.o(.rodata.str1.1)
-    .L.str.5                                 0x0000100d   Data          15  main.o(.rodata.str1.1)
-    .L.str.6                                 0x0000101c   Data          15  main.o(.rodata.str1.1)
-    .L.str                                   0x0000101e   Data          34  lcd_uart.o(.rodata.str1.1)
-    .L.str.7                                 0x0000102b   Data          48  main.o(.rodata.str1.1)
-    .L.str.24                                0x0000103e   Data           2  lcd_uart.o(.rodata.str1.1)
-    .L.str.4                                 0x00001040   Data          29  lcd_uart.o(.rodata.str1.1)
-    .L.str.8                                 0x0000105b   Data          28  main.o(.rodata.str1.1)
-    .L.str.5                                 0x0000105d   Data          26  lcd_uart.o(.rodata.str1.1)
-    .L.str.9                                 0x00001077   Data          18  main.o(.rodata.str1.1)
-    .L.str.10                                0x00001089   Data          61  main.o(.rodata.str1.1)
-    .L.str.11                                0x000010c6   Data          22  main.o(.rodata.str1.1)
-    .L.str.12                                0x000010dc   Data          56  main.o(.rodata.str1.1)
-    .L.str.13                                0x00001114   Data          22  main.o(.rodata.str1.1)
-    .L.str.14                                0x0000112a   Data          52  main.o(.rodata.str1.1)
-    .L.str.15                                0x0000115e   Data          23  main.o(.rodata.str1.1)
-    .L.str.16                                0x00001175   Data          55  main.o(.rodata.str1.1)
-    .L.str.17                                0x000011ac   Data          22  main.o(.rodata.str1.1)
-    .L.str.18                                0x000011c2   Data          56  main.o(.rodata.str1.1)
-    .L.str.19                                0x000011fa   Data          28  main.o(.rodata.str1.1)
-    .L.str.20                                0x00001216   Data          25  main.o(.rodata.str1.1)
-    .L.str.21                                0x0000122f   Data          23  main.o(.rodata.str1.1)
-    .L.str.22                                0x00001246   Data          19  main.o(.rodata.str1.1)
-    LCD_TestParagraph                        0x20000000   Data         512  main.o(.data.LCD_TestParagraph)
-    [Anonymous Symbol]                       0x20000000   Section        0  main.o(.data.LCD_TestParagraph)
-    .bss                                     0x20000208   Section       96  libspace.o(.bss)
-    HeapMem                                  0x20000270   Data           0  startup.o(HEAP)
-    StackMem                                 0x20000270   Data           0  startup.o(STACK)
-    HEAP                                     0x20000270   Section        0  startup.o(HEAP)
-    STACK                                    0x20000270   Section     1024  startup.o(STACK)
+    [Anonymous Symbol]                       0x000003e0   Section        0  uart.o(.text.Camera_HardwareReset)
+    [Anonymous Symbol]                       0x00000430   Section        0  main.o(.text.Initialize_Camera_Routine)
+    [Anonymous Symbol]                       0x00000598   Section        0  lcd_uart.o(.text.LCD_Clear)
+    [Anonymous Symbol]                       0x000005e4   Section        0  lcd_uart.o(.text.LCD_DisplayImage)
+    [Anonymous Symbol]                       0x000006e4   Section        0  lcd_uart.o(.text.LCD_InData)
+    [Anonymous Symbol]                       0x00000708   Section        0  lcd_uart.o(.text.LCD_MediaInit)
+    [Anonymous Symbol]                       0x00000798   Section        0  lcd_uart.o(.text.LCD_SetSectorAddress)
+    [Anonymous Symbol]                       0x0000087c   Section        0  lcd_uart.o(.text.LCD_UART_Init)
+    [Anonymous Symbol]                       0x00000920   Section        0  lcd_uart.o(.text.LCD_WriteSector)
+    [Anonymous Symbol]                       0x000009d4   Section        0  lcd_uart.o(.text.LCD_WriteString)
+    [Anonymous Symbol]                       0x00000ab4   Section        0  pll.o(.text.PLL_Init)
+    [Anonymous Symbol]                       0x00000b3c   Section        0  unified_port_init.o(.text.Port_A_Init)
+    [Anonymous Symbol]                       0x00000c68   Section        0  unified_port_init.o(.text.Port_B_Init)
+    [Anonymous Symbol]                       0x00000dd4   Section        0  unified_port_init.o(.text.Port_C_Init)
+    [Anonymous Symbol]                       0x00000e58   Section        0  unified_port_init.o(.text.Port_D_Init)
+    [Anonymous Symbol]                       0x00000f50   Section        0  unified_port_init.o(.text.Port_E_Init)
+    [Anonymous Symbol]                       0x0000103c   Section        0  unified_port_init.o(.text.Port_F_Init)
+    [Anonymous Symbol]                       0x000010c4   Section        0  main.o(.text.Take_Photo_Routine)
+    [Anonymous Symbol]                       0x000011ec   Section        0  timer1a.o(.text.Timer1A_Handler)
+    [Anonymous Symbol]                       0x0000122c   Section        0  timer1a.o(.text.Timer1A_Init)
+    [Anonymous Symbol]                       0x000012cc   Section        0  timer1a.o(.text.Timer1A_Stop)
+    [Anonymous Symbol]                       0x000012e8   Section        0  texas.o(.text.Timer5A_Handler)
+    [Anonymous Symbol]                       0x00001304   Section        0  uart.o(.text.UART_InData)
+    [Anonymous Symbol]                       0x000013ec   Section        0  uart.o(.text.UART_InNBytes)
+    [Anonymous Symbol]                       0x00001438   Section        0  uart.o(.text.UART_Init)
+    [Anonymous Symbol]                       0x000014ec   Section        0  uart.o(.text.UART_OutACK)
+    [Anonymous Symbol]                       0x000015a4   Section        0  uart.o(.text.UART_OutCUSTOMACK)
+    [Anonymous Symbol]                       0x0000172c   Section        0  uart.o(.text.UART_OutGetPic)
+    [Anonymous Symbol]                       0x0000184c   Section        0  uart.o(.text.UART_OutInitial)
+    [Anonymous Symbol]                       0x0000196c   Section        0  uart.o(.text.UART_OutPackageSize)
+    [Anonymous Symbol]                       0x00001a8c   Section        0  uart.o(.text.UART_OutSnapshot)
+    [Anonymous Symbol]                       0x00001bac   Section        0  uart.o(.text.UART_OutSync)
+    [Anonymous Symbol]                       0x00001c64   Section        0  unified_port_init.o(.text.Unified_Port_Init)
+    [Anonymous Symbol]                       0x00001c80   Section        0  main.o(.text.main)
+    [Anonymous Symbol]                       0x00001c90   Section        0  main.o(.text.sdcard_camera_main5)
+    $v0                                      0x00001cec   Number         0  fpinit.o(x$fpl$fpinit)
+    x$fpl$fpinit                             0x00001cec   Section       26  fpinit.o(x$fpl$fpinit)
+    .L.str                                   0x00001d06   Data          20  main.o(.rodata.str1.1)
+    .L.str.3                                 0x00001d06   Data          13  main.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x00001d06   Section        0  main.o(.rodata.str1.1)
+    .L.str.18                                0x00001d13   Data          56  main.o(.rodata.str1.1)
+    .L.str.1                                 0x00001d1a   Data          24  main.o(.rodata.str1.1)
+    .L.str.2                                 0x00001d32   Data          23  main.o(.rodata.str1.1)
+    .L.str.32                                0x00001d4b   Data          21  main.o(.rodata.str1.1)
+    .L.str.4                                 0x00001d56   Data          15  main.o(.rodata.str1.1)
+    .L.str.31                                0x00001d60   Data          25  main.o(.rodata.str1.1)
+    .L.str.5                                 0x00001d65   Data          15  main.o(.rodata.str1.1)
+    .L.str.6                                 0x00001d74   Data          15  main.o(.rodata.str1.1)
+    .L.str.29                                0x00001d79   Data          47  main.o(.rodata.str1.1)
+    .L.str.7                                 0x00001d83   Data          48  main.o(.rodata.str1.1)
+    .L.str.30                                0x00001da8   Data          31  main.o(.rodata.str1.1)
+    .L.str.8                                 0x00001db3   Data          28  main.o(.rodata.str1.1)
+    .L.str                                   0x00001dc7   Data          61  uart.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x00001dc7   Section        0  uart.o(.rodata.str1.1)
+    .L.str.9                                 0x00001dcf   Data          18  main.o(.rodata.str1.1)
+    .L.str.10                                0x00001de1   Data          61  main.o(.rodata.str1.1)
+    .L.str.3                                 0x00001e04   Data          55  uart.o(.rodata.str1.1)
+    .L.str.11                                0x00001e1e   Data          22  main.o(.rodata.str1.1)
+    .L.str.12                                0x00001e34   Data          56  main.o(.rodata.str1.1)
+    .L.str.1                                 0x00001e3b   Data          56  uart.o(.rodata.str1.1)
+    .L.str.13                                0x00001e6c   Data          22  main.o(.rodata.str1.1)
+    .L.str.2                                 0x00001e73   Data          52  uart.o(.rodata.str1.1)
+    .L.str.14                                0x00001e82   Data          52  main.o(.rodata.str1.1)
+    .L.str.2                                 0x00001ea7   Data          23  lcd_uart.o(.rodata.str1.1)
+    [Anonymous Symbol]                       0x00001ea7   Section        0  lcd_uart.o(.rodata.str1.1)
+    .L.str.15                                0x00001eb6   Data          23  main.o(.rodata.str1.1)
+    .L.str.1                                 0x00001ebe   Data          28  lcd_uart.o(.rodata.str1.1)
+    .L.str.16                                0x00001ecd   Data          55  main.o(.rodata.str1.1)
+    .L.str.3                                 0x00001eda   Data          29  lcd_uart.o(.rodata.str1.1)
+    .L.str.5                                 0x00001ef7   Data          26  lcd_uart.o(.rodata.str1.1)
+    .L.str.17                                0x00001f04   Data          22  main.o(.rodata.str1.1)
+    .L.str                                   0x00001f11   Data          34  lcd_uart.o(.rodata.str1.1)
+    .L.str.4                                 0x00001f19   Data          29  lcd_uart.o(.rodata.str1.1)
+    .L.str.6                                 0x00001f50   Data          22  lcd_uart.o(.rodata.str1.1)
+    .L.str.19                                0x00001f52   Data          28  main.o(.rodata.str1.1)
+    .L.str.7                                 0x00001f66   Data          21  lcd_uart.o(.rodata.str1.1)
+    .L.str.20                                0x00001f6e   Data          25  main.o(.rodata.str1.1)
+    .L.str.8                                 0x00001f7b   Data          23  lcd_uart.o(.rodata.str1.1)
+    .L.str.21                                0x00001f87   Data          23  main.o(.rodata.str1.1)
+    .L.str.9                                 0x00001f92   Data          26  lcd_uart.o(.rodata.str1.1)
+    .L.str.22                                0x00001f9e   Data          19  main.o(.rodata.str1.1)
+    .L.str.10                                0x00001fac   Data          25  lcd_uart.o(.rodata.str1.1)
+    .L.str.23                                0x00001fb1   Data           5  main.o(.rodata.str1.1)
+    .L.str.24                                0x00001fb6   Data           2  main.o(.rodata.str1.1)
+    .L.str.25                                0x00001fb8   Data           8  main.o(.rodata.str1.1)
+    .L.str.26                                0x00001fc0   Data           6  main.o(.rodata.str1.1)
+    .L.str.11                                0x00001fc5   Data          23  lcd_uart.o(.rodata.str1.1)
+    .L.str.27                                0x00001fc6   Data           6  main.o(.rodata.str1.1)
+    .L.str.28                                0x00001fcc   Data           6  main.o(.rodata.str1.1)
+    .L.str.12                                0x00001fdc   Data          20  lcd_uart.o(.rodata.str1.1)
+    .L.str.13                                0x00001ff0   Data          36  lcd_uart.o(.rodata.str1.1)
+    .L.str.14                                0x00002014   Data          14  lcd_uart.o(.rodata.str1.1)
+    .L.str.15                                0x00002022   Data          17  lcd_uart.o(.rodata.str1.1)
+    .L.str.16                                0x00002033   Data          22  lcd_uart.o(.rodata.str1.1)
+    .L.str.17                                0x00002049   Data          20  lcd_uart.o(.rodata.str1.1)
+    .L.str.18                                0x0000205d   Data          21  lcd_uart.o(.rodata.str1.1)
+    .L.str.19                                0x00002072   Data          32  lcd_uart.o(.rodata.str1.1)
+    .L.str.20                                0x00002092   Data          25  lcd_uart.o(.rodata.str1.1)
+    .bss                                     0x20000008   Section       96  libspace.o(.bss)
+    HeapMem                                  0x20000278   Data           0  startup.o(HEAP)
+    StackMem                                 0x20000278   Data           0  startup.o(STACK)
+    HEAP                                     0x20000278   Section        0  startup.o(HEAP)
+    STACK                                    0x20000278   Section     1024  startup.o(STACK)
 
     Global Symbols
 
@@ -730,7 +883,6 @@ Image Symbol Table
     __arm_preinit_                            - Undefined Weak Reference
     __cpp_initialize__aeabi_                  - Undefined Weak Reference
     __cxa_finalize                            - Undefined Weak Reference
-    __decompress                              - Undefined Weak Reference
     __rt_locale                               - Undefined Weak Reference
     __sigvec_lookup                           - Undefined Weak Reference
     _atexit_init                              - Undefined Weak Reference
@@ -942,35 +1094,53 @@ Image Symbol Table
     __I$use$semihosting                      0x000003dd   Thumb Code     0  use_no_semi.o(.text)
     __use_no_semihosting_swi                 0x000003dd   Thumb Code     2  use_no_semi.o(.text)
     __semihosting_library_function           0x000003df   Thumb Code     0  indicate_semi.o(.text)
-    LCD_Clear                                0x000003e1   Thumb Code    76  lcd_uart.o(.text.LCD_Clear)
-    LCD_InData                               0x0000042d   Thumb Code    36  lcd_uart.o(.text.LCD_InData)
-    LCD_MediaInit                            0x00000451   Thumb Code   144  lcd_uart.o(.text.LCD_MediaInit)
-    LCD_ReadSector                           0x000004e1   Thumb Code   152  lcd_uart.o(.text.LCD_ReadSector)
-    LCD_SetSectorAddress                     0x00000579   Thumb Code   226  lcd_uart.o(.text.LCD_SetSectorAddress)
-    LCD_UART_Init                            0x0000065d   Thumb Code   162  lcd_uart.o(.text.LCD_UART_Init)
-    LCD_WriteSector                          0x00000701   Thumb Code   178  lcd_uart.o(.text.LCD_WriteSector)
-    LCD_WriteString                          0x000007b5   Thumb Code   224  lcd_uart.o(.text.LCD_WriteString)
-    PLL_Init                                 0x00000895   Thumb Code   136  pll.o(.text.PLL_Init)
-    Port_A_Init                              0x0000091d   Thumb Code   300  unified_port_init.o(.text.Port_A_Init)
-    Port_B_Init                              0x00000a49   Thumb Code   364  unified_port_init.o(.text.Port_B_Init)
-    Port_C_Init                              0x00000bb5   Thumb Code   132  unified_port_init.o(.text.Port_C_Init)
-    Port_D_Init                              0x00000c39   Thumb Code   248  unified_port_init.o(.text.Port_D_Init)
-    Port_E_Init                              0x00000d31   Thumb Code   234  unified_port_init.o(.text.Port_E_Init)
-    Port_F_Init                              0x00000e1d   Thumb Code   136  unified_port_init.o(.text.Port_F_Init)
-    Timer1A_Handler                          0x00000ea5   Thumb Code    64  timer1a.o(.text.Timer1A_Handler)
-    Timer5A_Handler                          0x00000ee5   Thumb Code    28  texas.o(.text.Timer5A_Handler)
-    Unified_Port_Init                        0x00000f01   Thumb Code    28  unified_port_init.o(.text.Unified_Port_Init)
-    main                                     0x00000f1d   Thumb Code   120  main.o(.text.main)
-    _fp_init                                 0x00000f95   Thumb Code    26  fpinit.o(x$fpl$fpinit)
-    __fplib_config_fpu_vfp                   0x00000fad   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    __fplib_config_pureend_doubles           0x00000fad   Thumb Code     0  fpinit.o(x$fpl$fpinit)
-    Region$$Table$$Base                      0x00001040   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x00001060   Number         0  anon$$obj.o(Region$$Table)
-    SyncTime                                 0x20000200   Data           4  timer1a.o(.data.SyncTime)
-    __libspace_start                         0x20000208   Data          96  libspace.o(.bss)
-    PeriodicTask1                            0x20000268   Data           4  timer1a.o(.bss.PeriodicTask1)
-    __temporary_stack_top$libspace           0x20000268   Data           0  libspace.o(.bss)
-    PeriodicTask2                            0x2000026c   Data           4  texas.o(.bss.PeriodicTask2)
+    Camera_HardwareReset                     0x000003e1   Thumb Code    80  uart.o(.text.Camera_HardwareReset)
+    Initialize_Camera_Routine                0x00000431   Thumb Code   358  main.o(.text.Initialize_Camera_Routine)
+    LCD_Clear                                0x00000599   Thumb Code    76  lcd_uart.o(.text.LCD_Clear)
+    LCD_DisplayImage                         0x000005e5   Thumb Code   256  lcd_uart.o(.text.LCD_DisplayImage)
+    LCD_InData                               0x000006e5   Thumb Code    36  lcd_uart.o(.text.LCD_InData)
+    LCD_MediaInit                            0x00000709   Thumb Code   144  lcd_uart.o(.text.LCD_MediaInit)
+    LCD_SetSectorAddress                     0x00000799   Thumb Code   226  lcd_uart.o(.text.LCD_SetSectorAddress)
+    LCD_UART_Init                            0x0000087d   Thumb Code   162  lcd_uart.o(.text.LCD_UART_Init)
+    LCD_WriteSector                          0x00000921   Thumb Code   178  lcd_uart.o(.text.LCD_WriteSector)
+    LCD_WriteString                          0x000009d5   Thumb Code   224  lcd_uart.o(.text.LCD_WriteString)
+    PLL_Init                                 0x00000ab5   Thumb Code   136  pll.o(.text.PLL_Init)
+    Port_A_Init                              0x00000b3d   Thumb Code   300  unified_port_init.o(.text.Port_A_Init)
+    Port_B_Init                              0x00000c69   Thumb Code   364  unified_port_init.o(.text.Port_B_Init)
+    Port_C_Init                              0x00000dd5   Thumb Code   132  unified_port_init.o(.text.Port_C_Init)
+    Port_D_Init                              0x00000e59   Thumb Code   248  unified_port_init.o(.text.Port_D_Init)
+    Port_E_Init                              0x00000f51   Thumb Code   234  unified_port_init.o(.text.Port_E_Init)
+    Port_F_Init                              0x0000103d   Thumb Code   136  unified_port_init.o(.text.Port_F_Init)
+    Take_Photo_Routine                       0x000010c5   Thumb Code   296  main.o(.text.Take_Photo_Routine)
+    Timer1A_Handler                          0x000011ed   Thumb Code    64  timer1a.o(.text.Timer1A_Handler)
+    Timer1A_Init                             0x0000122d   Thumb Code   160  timer1a.o(.text.Timer1A_Init)
+    Timer1A_Stop                             0x000012cd   Thumb Code    28  timer1a.o(.text.Timer1A_Stop)
+    Timer5A_Handler                          0x000012e9   Thumb Code    28  texas.o(.text.Timer5A_Handler)
+    UART_InData                              0x00001305   Thumb Code   230  uart.o(.text.UART_InData)
+    UART_InNBytes                            0x000013ed   Thumb Code    74  uart.o(.text.UART_InNBytes)
+    UART_Init                                0x00001439   Thumb Code   178  uart.o(.text.UART_Init)
+    UART_OutACK                              0x000014ed   Thumb Code   182  uart.o(.text.UART_OutACK)
+    UART_OutCUSTOMACK                        0x000015a5   Thumb Code   392  uart.o(.text.UART_OutCUSTOMACK)
+    UART_OutGetPic                           0x0000172d   Thumb Code   288  uart.o(.text.UART_OutGetPic)
+    UART_OutInitial                          0x0000184d   Thumb Code   288  uart.o(.text.UART_OutInitial)
+    UART_OutPackageSize                      0x0000196d   Thumb Code   288  uart.o(.text.UART_OutPackageSize)
+    UART_OutSnapshot                         0x00001a8d   Thumb Code   288  uart.o(.text.UART_OutSnapshot)
+    UART_OutSync                             0x00001bad   Thumb Code   182  uart.o(.text.UART_OutSync)
+    Unified_Port_Init                        0x00001c65   Thumb Code    28  unified_port_init.o(.text.Unified_Port_Init)
+    main                                     0x00001c81   Thumb Code    16  main.o(.text.main)
+    sdcard_camera_main5                      0x00001c91   Thumb Code    92  main.o(.text.sdcard_camera_main5)
+    _fp_init                                 0x00001ced   Thumb Code    26  fpinit.o(x$fpl$fpinit)
+    __fplib_config_fpu_vfp                   0x00001d05   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    __fplib_config_pureend_doubles           0x00001d05   Thumb Code     0  fpinit.o(x$fpl$fpinit)
+    Region$$Table$$Base                      0x00001f34   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x00001f54   Number         0  anon$$obj.o(Region$$Table)
+    SyncTime                                 0x20000000   Data           4  timer1a.o(.data.SyncTime)
+    __libspace_start                         0x20000008   Data          96  libspace.o(.bss)
+    PeriodicTask1                            0x20000068   Data           4  timer1a.o(.bss.PeriodicTask1)
+    __temporary_stack_top$libspace           0x20000068   Data           0  libspace.o(.bss)
+    PeriodicTask2                            0x2000006c   Data           4  texas.o(.bss.PeriodicTask2)
+    array                                    0x20000070   Data           6  uart.o(.bss.array)
+    image_array                              0x20000076   Data         512  uart.o(.bss.image_array)
 
 
 
@@ -980,111 +1150,137 @@ Memory Map of the image
 
   Image Entry point : 0x00000295
 
-  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00001268, Max: 0x00040000, ABSOLUTE)
+  Load Region LR_IROM1 (Base: 0x00000000, Size: 0x00001f60, Max: 0x00040000, ABSOLUTE)
 
-    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001060, Max: 0x00040000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x00000000, Load base: 0x00000000, Size: 0x00001f54, Max: 0x00040000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x00000000   0x00000000   0x00000294   Code   RO           76    RESET               startup.o
-    0x00000294   0x00000294   0x00000008   Code   RO          270  * !!!main             c_w.l(__main.o)
-    0x0000029c   0x0000029c   0x00000034   Code   RO          433    !!!scatter          c_w.l(__scatter.o)
-    0x000002d0   0x000002d0   0x0000001a   Code   RO          435    !!handler_copy      c_w.l(__scatter_copy.o)
+    0x00000000   0x00000000   0x00000294   Code   RO           87    RESET               startup.o
+    0x00000294   0x00000294   0x00000008   Code   RO          297  * !!!main             c_w.l(__main.o)
+    0x0000029c   0x0000029c   0x00000034   Code   RO          460    !!!scatter          c_w.l(__scatter.o)
+    0x000002d0   0x000002d0   0x0000001a   Code   RO          462    !!handler_copy      c_w.l(__scatter_copy.o)
     0x000002ea   0x000002ea   0x00000002   PAD
-    0x000002ec   0x000002ec   0x0000001c   Code   RO          437    !!handler_zi        c_w.l(__scatter_zi.o)
-    0x00000308   0x00000308   0x00000002   Code   RO          297    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
-    0x0000030a   0x0000030a   0x00000004   Code   RO          303    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          306    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          309    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          311    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          313    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          316    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          318    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          320    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          322    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          324    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          326    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          328    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          330    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          332    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          334    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          336    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          340    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          342    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          344    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000000   Code   RO          346    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
-    0x0000030e   0x0000030e   0x00000002   Code   RO          347    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
-    0x00000310   0x00000310   0x00000002   Code   RO          369    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
-    0x00000312   0x00000312   0x00000000   Code   RO          384    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
-    0x00000312   0x00000312   0x00000000   Code   RO          386    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
-    0x00000312   0x00000312   0x00000000   Code   RO          389    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
-    0x00000312   0x00000312   0x00000000   Code   RO          392    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
-    0x00000312   0x00000312   0x00000000   Code   RO          394    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
-    0x00000312   0x00000312   0x00000000   Code   RO          397    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
-    0x00000312   0x00000312   0x00000002   Code   RO          398    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
-    0x00000314   0x00000314   0x00000000   Code   RO          272    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
-    0x00000314   0x00000314   0x00000000   Code   RO          274    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
-    0x00000314   0x00000314   0x00000006   Code   RO          286    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
-    0x0000031a   0x0000031a   0x00000000   Code   RO          276    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
-    0x0000031a   0x0000031a   0x00000004   Code   RO          277    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
-    0x0000031e   0x0000031e   0x00000000   Code   RO          279    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
-    0x0000031e   0x0000031e   0x00000008   Code   RO          280    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
-    0x00000326   0x00000326   0x00000002   Code   RO          301    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
-    0x00000328   0x00000328   0x00000000   Code   RO          349    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
-    0x00000328   0x00000328   0x00000004   Code   RO          350    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
-    0x0000032c   0x0000032c   0x00000006   Code   RO          351    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
+    0x000002ec   0x000002ec   0x0000001c   Code   RO          464    !!handler_zi        c_w.l(__scatter_zi.o)
+    0x00000308   0x00000308   0x00000002   Code   RO          324    .ARM.Collect$$libinit$$00000000  c_w.l(libinit.o)
+    0x0000030a   0x0000030a   0x00000004   Code   RO          330    .ARM.Collect$$libinit$$00000001  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          333    .ARM.Collect$$libinit$$00000004  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          336    .ARM.Collect$$libinit$$0000000A  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          338    .ARM.Collect$$libinit$$0000000C  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          340    .ARM.Collect$$libinit$$0000000E  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          343    .ARM.Collect$$libinit$$00000011  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          345    .ARM.Collect$$libinit$$00000013  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          347    .ARM.Collect$$libinit$$00000015  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          349    .ARM.Collect$$libinit$$00000017  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          351    .ARM.Collect$$libinit$$00000019  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          353    .ARM.Collect$$libinit$$0000001B  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          355    .ARM.Collect$$libinit$$0000001D  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          357    .ARM.Collect$$libinit$$0000001F  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          359    .ARM.Collect$$libinit$$00000021  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          361    .ARM.Collect$$libinit$$00000023  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          363    .ARM.Collect$$libinit$$00000025  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          367    .ARM.Collect$$libinit$$0000002C  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          369    .ARM.Collect$$libinit$$0000002E  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          371    .ARM.Collect$$libinit$$00000030  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000000   Code   RO          373    .ARM.Collect$$libinit$$00000032  c_w.l(libinit2.o)
+    0x0000030e   0x0000030e   0x00000002   Code   RO          374    .ARM.Collect$$libinit$$00000033  c_w.l(libinit2.o)
+    0x00000310   0x00000310   0x00000002   Code   RO          396    .ARM.Collect$$libshutdown$$00000000  c_w.l(libshutdown.o)
+    0x00000312   0x00000312   0x00000000   Code   RO          411    .ARM.Collect$$libshutdown$$00000002  c_w.l(libshutdown2.o)
+    0x00000312   0x00000312   0x00000000   Code   RO          413    .ARM.Collect$$libshutdown$$00000004  c_w.l(libshutdown2.o)
+    0x00000312   0x00000312   0x00000000   Code   RO          416    .ARM.Collect$$libshutdown$$00000007  c_w.l(libshutdown2.o)
+    0x00000312   0x00000312   0x00000000   Code   RO          419    .ARM.Collect$$libshutdown$$0000000A  c_w.l(libshutdown2.o)
+    0x00000312   0x00000312   0x00000000   Code   RO          421    .ARM.Collect$$libshutdown$$0000000C  c_w.l(libshutdown2.o)
+    0x00000312   0x00000312   0x00000000   Code   RO          424    .ARM.Collect$$libshutdown$$0000000F  c_w.l(libshutdown2.o)
+    0x00000312   0x00000312   0x00000002   Code   RO          425    .ARM.Collect$$libshutdown$$00000010  c_w.l(libshutdown2.o)
+    0x00000314   0x00000314   0x00000000   Code   RO          299    .ARM.Collect$$rtentry$$00000000  c_w.l(__rtentry.o)
+    0x00000314   0x00000314   0x00000000   Code   RO          301    .ARM.Collect$$rtentry$$00000002  c_w.l(__rtentry2.o)
+    0x00000314   0x00000314   0x00000006   Code   RO          313    .ARM.Collect$$rtentry$$00000004  c_w.l(__rtentry4.o)
+    0x0000031a   0x0000031a   0x00000000   Code   RO          303    .ARM.Collect$$rtentry$$00000009  c_w.l(__rtentry2.o)
+    0x0000031a   0x0000031a   0x00000004   Code   RO          304    .ARM.Collect$$rtentry$$0000000A  c_w.l(__rtentry2.o)
+    0x0000031e   0x0000031e   0x00000000   Code   RO          306    .ARM.Collect$$rtentry$$0000000C  c_w.l(__rtentry2.o)
+    0x0000031e   0x0000031e   0x00000008   Code   RO          307    .ARM.Collect$$rtentry$$0000000D  c_w.l(__rtentry2.o)
+    0x00000326   0x00000326   0x00000002   Code   RO          328    .ARM.Collect$$rtexit$$00000000  c_w.l(rtexit.o)
+    0x00000328   0x00000328   0x00000000   Code   RO          376    .ARM.Collect$$rtexit$$00000002  c_w.l(rtexit2.o)
+    0x00000328   0x00000328   0x00000004   Code   RO          377    .ARM.Collect$$rtexit$$00000003  c_w.l(rtexit2.o)
+    0x0000032c   0x0000032c   0x00000006   Code   RO          378    .ARM.Collect$$rtexit$$00000004  c_w.l(rtexit2.o)
     0x00000332   0x00000332   0x00000002   PAD
-    0x00000334   0x00000334   0x00000030   Code   RO           77    .text               startup.o
-    0x00000364   0x00000364   0x00000006   Code   RO          268    .text               c_w.l(heapauxi.o)
-    0x0000036a   0x0000036a   0x0000004a   Code   RO          288    .text               c_w.l(sys_stackheap_outer.o)
-    0x000003b4   0x000003b4   0x00000012   Code   RO          290    .text               c_w.l(exit.o)
+    0x00000334   0x00000334   0x00000030   Code   RO           88    .text               startup.o
+    0x00000364   0x00000364   0x00000006   Code   RO          295    .text               c_w.l(heapauxi.o)
+    0x0000036a   0x0000036a   0x0000004a   Code   RO          315    .text               c_w.l(sys_stackheap_outer.o)
+    0x000003b4   0x000003b4   0x00000012   Code   RO          317    .text               c_w.l(exit.o)
     0x000003c6   0x000003c6   0x00000002   PAD
-    0x000003c8   0x000003c8   0x00000008   Code   RO          298    .text               c_w.l(libspace.o)
-    0x000003d0   0x000003d0   0x0000000c   Code   RO          359    .text               c_w.l(sys_exit.o)
-    0x000003dc   0x000003dc   0x00000002   Code   RO          374    .text               c_w.l(use_no_semi.o)
-    0x000003de   0x000003de   0x00000000   Code   RO          376    .text               c_w.l(indicate_semi.o)
+    0x000003c8   0x000003c8   0x00000008   Code   RO          325    .text               c_w.l(libspace.o)
+    0x000003d0   0x000003d0   0x0000000c   Code   RO          386    .text               c_w.l(sys_exit.o)
+    0x000003dc   0x000003dc   0x00000002   Code   RO          401    .text               c_w.l(use_no_semi.o)
+    0x000003de   0x000003de   0x00000000   Code   RO          403    .text               c_w.l(indicate_semi.o)
     0x000003de   0x000003de   0x00000002   PAD
-    0x000003e0   0x000003e0   0x0000004c   Code   RO          109    .text.LCD_Clear     lcd_uart.o
-    0x0000042c   0x0000042c   0x00000024   Code   RO          111    .text.LCD_InData    lcd_uart.o
-    0x00000450   0x00000450   0x00000090   Code   RO          117    .text.LCD_MediaInit  lcd_uart.o
-    0x000004e0   0x000004e0   0x00000098   Code   RO          123    .text.LCD_ReadSector  lcd_uart.o
-    0x00000578   0x00000578   0x000000e2   Code   RO          119    .text.LCD_SetSectorAddress  lcd_uart.o
-    0x0000065a   0x0000065a   0x00000002   PAD
-    0x0000065c   0x0000065c   0x000000a2   Code   RO          107    .text.LCD_UART_Init  lcd_uart.o
-    0x000006fe   0x000006fe   0x00000002   PAD
-    0x00000700   0x00000700   0x000000b2   Code   RO          121    .text.LCD_WriteSector  lcd_uart.o
-    0x000007b2   0x000007b2   0x00000002   PAD
-    0x000007b4   0x000007b4   0x000000e0   Code   RO          115    .text.LCD_WriteString  lcd_uart.o
-    0x00000894   0x00000894   0x00000088   Code   RO           18    .text.PLL_Init      pll.o
-    0x0000091c   0x0000091c   0x0000012c   Code   RO           88    .text.Port_A_Init   unified_port_init.o
-    0x00000a48   0x00000a48   0x0000016c   Code   RO           90    .text.Port_B_Init   unified_port_init.o
-    0x00000bb4   0x00000bb4   0x00000084   Code   RO           92    .text.Port_C_Init   unified_port_init.o
-    0x00000c38   0x00000c38   0x000000f8   Code   RO           94    .text.Port_D_Init   unified_port_init.o
-    0x00000d30   0x00000d30   0x000000ea   Code   RO           96    .text.Port_E_Init   unified_port_init.o
-    0x00000e1a   0x00000e1a   0x00000002   PAD
-    0x00000e1c   0x00000e1c   0x00000088   Code   RO           98    .text.Port_F_Init   unified_port_init.o
-    0x00000ea4   0x00000ea4   0x00000040   Code   RO           61    .text.Timer1A_Handler  timer1a.o
-    0x00000ee4   0x00000ee4   0x0000001c   Code   RO          198    .text.Timer5A_Handler  texas.o
-    0x00000f00   0x00000f00   0x0000001c   Code   RO           86    .text.Unified_Port_Init  unified_port_init.o
-    0x00000f1c   0x00000f1c   0x00000078   Code   RO            6    .text.main          main.o
-    0x00000f94   0x00000f94   0x0000001a   Code   RO          357    x$fpl$fpinit        fz_wm.l(fpinit.o)
-    0x00000fae   0x00000fae   0x00000020   Data   RO            8    .rodata.str1.1      main.o
-    0x00000fce   0x00000fce   0x00000072   Data   RO          129    .rodata.str1.1      lcd_uart.o
-    0x00001040   0x00001040   0x00000020   Data   RO          432    Region$$Table       anon$$obj.o
+    0x000003e0   0x000003e0   0x00000050   Code   RO           58    .text.Camera_HardwareReset  uart.o
+    0x00000430   0x00000430   0x00000166   Code   RO           10    .text.Initialize_Camera_Routine  main.o
+    0x00000596   0x00000596   0x00000002   PAD
+    0x00000598   0x00000598   0x0000004c   Code   RO          120    .text.LCD_Clear     lcd_uart.o
+    0x000005e4   0x000005e4   0x00000100   Code   RO          138    .text.LCD_DisplayImage  lcd_uart.o
+    0x000006e4   0x000006e4   0x00000024   Code   RO          122    .text.LCD_InData    lcd_uart.o
+    0x00000708   0x00000708   0x00000090   Code   RO          128    .text.LCD_MediaInit  lcd_uart.o
+    0x00000798   0x00000798   0x000000e2   Code   RO          130    .text.LCD_SetSectorAddress  lcd_uart.o
+    0x0000087a   0x0000087a   0x00000002   PAD
+    0x0000087c   0x0000087c   0x000000a2   Code   RO          118    .text.LCD_UART_Init  lcd_uart.o
+    0x0000091e   0x0000091e   0x00000002   PAD
+    0x00000920   0x00000920   0x000000b2   Code   RO          132    .text.LCD_WriteSector  lcd_uart.o
+    0x000009d2   0x000009d2   0x00000002   PAD
+    0x000009d4   0x000009d4   0x000000e0   Code   RO          126    .text.LCD_WriteString  lcd_uart.o
+    0x00000ab4   0x00000ab4   0x00000088   Code   RO           28    .text.PLL_Init      pll.o
+    0x00000b3c   0x00000b3c   0x0000012c   Code   RO           99    .text.Port_A_Init   unified_port_init.o
+    0x00000c68   0x00000c68   0x0000016c   Code   RO          101    .text.Port_B_Init   unified_port_init.o
+    0x00000dd4   0x00000dd4   0x00000084   Code   RO          103    .text.Port_C_Init   unified_port_init.o
+    0x00000e58   0x00000e58   0x000000f8   Code   RO          105    .text.Port_D_Init   unified_port_init.o
+    0x00000f50   0x00000f50   0x000000ea   Code   RO          107    .text.Port_E_Init   unified_port_init.o
+    0x0000103a   0x0000103a   0x00000002   PAD
+    0x0000103c   0x0000103c   0x00000088   Code   RO          109    .text.Port_F_Init   unified_port_init.o
+    0x000010c4   0x000010c4   0x00000128   Code   RO           12    .text.Take_Photo_Routine  main.o
+    0x000011ec   0x000011ec   0x00000040   Code   RO           72    .text.Timer1A_Handler  timer1a.o
+    0x0000122c   0x0000122c   0x000000a0   Code   RO           70    .text.Timer1A_Init  timer1a.o
+    0x000012cc   0x000012cc   0x0000001c   Code   RO           74    .text.Timer1A_Stop  timer1a.o
+    0x000012e8   0x000012e8   0x0000001c   Code   RO          225    .text.Timer5A_Handler  texas.o
+    0x00001304   0x00001304   0x000000e6   Code   RO           38    .text.UART_InData   uart.o
+    0x000013ea   0x000013ea   0x00000002   PAD
+    0x000013ec   0x000013ec   0x0000004a   Code   RO           56    .text.UART_InNBytes  uart.o
+    0x00001436   0x00001436   0x00000002   PAD
+    0x00001438   0x00001438   0x000000b2   Code   RO           36    .text.UART_Init     uart.o
+    0x000014ea   0x000014ea   0x00000002   PAD
+    0x000014ec   0x000014ec   0x000000b6   Code   RO           42    .text.UART_OutACK   uart.o
+    0x000015a2   0x000015a2   0x00000002   PAD
+    0x000015a4   0x000015a4   0x00000188   Code   RO           52    .text.UART_OutCUSTOMACK  uart.o
+    0x0000172c   0x0000172c   0x00000120   Code   RO           50    .text.UART_OutGetPic  uart.o
+    0x0000184c   0x0000184c   0x00000120   Code   RO           44    .text.UART_OutInitial  uart.o
+    0x0000196c   0x0000196c   0x00000120   Code   RO           46    .text.UART_OutPackageSize  uart.o
+    0x00001a8c   0x00001a8c   0x00000120   Code   RO           48    .text.UART_OutSnapshot  uart.o
+    0x00001bac   0x00001bac   0x000000b6   Code   RO           40    .text.UART_OutSync  uart.o
+    0x00001c62   0x00001c62   0x00000002   PAD
+    0x00001c64   0x00001c64   0x0000001c   Code   RO           97    .text.Unified_Port_Init  unified_port_init.o
+    0x00001c80   0x00001c80   0x00000010   Code   RO           16    .text.main          main.o
+    0x00001c90   0x00001c90   0x0000005c   Code   RO           14    .text.sdcard_camera_main5  main.o
+    0x00001cec   0x00001cec   0x0000001a   Code   RO          384    x$fpl$fpinit        fz_wm.l(fpinit.o)
+    0x00001d06   0x00001d06   0x000000c1   Data   RO           18    .rodata.str1.1      main.o
+    0x00001dc7   0x00001dc7   0x000000e0   Data   RO           61    .rodata.str1.1      uart.o
+    0x00001ea7   0x00001ea7   0x0000008c   Data   RO          156    .rodata.str1.1      lcd_uart.o
+    0x00001f33   0x00001f33   0x00000001   PAD
+    0x00001f34   0x00001f34   0x00000020   Data   RO          459    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x00001060, Size: 0x00000670, Max: 0x00008000, ABSOLUTE)
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x00001f58, Size: 0x00000678, Max: 0x00008000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
-    0x20000000   0x00001060   0x00000200   Data   RW            9    .data.LCD_TestParagraph  main.o
-    0x20000200   0x00001260   0x00000004   Data   RW           65    .data.SyncTime      timer1a.o
-    0x20000204   0x00001264   0x00000004   PAD
-    0x20000208        -       0x00000060   Zero   RW          299    .bss                c_w.l(libspace.o)
-    0x20000268        -       0x00000004   Zero   RW           66    .bss.PeriodicTask1  timer1a.o
-    0x2000026c        -       0x00000004   Zero   RW          259    .bss.PeriodicTask2  texas.o
-    0x20000270        -       0x00000000   Zero   RW           75    HEAP                startup.o
-    0x20000270        -       0x00000400   Zero   RW           74    STACK               startup.o
+    0x20000000   0x00001f58   0x00000004   Data   RW           76    .data.SyncTime      timer1a.o
+    0x20000004   0x00001f5c   0x00000004   PAD
+    0x20000008        -       0x00000060   Zero   RW          326    .bss                c_w.l(libspace.o)
+    0x20000068        -       0x00000004   Zero   RW           77    .bss.PeriodicTask1  timer1a.o
+    0x2000006c        -       0x00000004   Zero   RW          286    .bss.PeriodicTask2  texas.o
+    0x20000070        -       0x00000006   Zero   RW           60    .bss.array          uart.o
+    0x20000076        -       0x00000200   Zero   RW           62    .bss.image_array    uart.o
+    0x20000276   0x00001f5c   0x00000002   PAD
+    0x20000278        -       0x00000000   Zero   RW           86    HEAP                startup.o
+    0x20000278        -       0x00000400   Zero   RW           85    STACK               startup.o
 
 
 ==============================================================================
@@ -1094,18 +1290,19 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
-      1198          0        114          0          0       2860   lcd_uart.o
-       120          0         32        512          0       1925   main.o
-       136          0          0          0          0        537   pll.o
-       708        632          0          0       1024        936   startup.o
+      1302          0        140          0          0       5211   lcd_uart.o
+       762          0        193          0          0       3009   main.o
+       136          0          0          0          0        559   pll.o
+       708        632          0          0       1024        976   startup.o
         28          0          0          0          4       4175   texas.o
-        64          0          0          4          4        915   timer1a.o
+       252          0          0          4          4        937   timer1a.o
+      2470          0        224          0        518       3724   uart.o
       1442          0          0          0          0       1392   unified_port_init.o
 
     ----------------------------------------------------------------------
-      3704        632        178        516       1036      12740   Object Totals
+      7120        632        590          4       1556      19983   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-         8          0          0          0          4          0   (incl. Padding)
+        20          0          1          0          6          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -1154,15 +1351,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-      4014        648        178        516       1132      13204   Grand Totals
-      4014        648        178        516       1132      13204   ELF Image Totals
-      4014        648        178        516          0          0   ROM Totals
+      7430        648        590          4       1652      20431   Grand Totals
+      7430        648        590          4       1652      20431   ELF Image Totals
+      7430        648        590          4          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                 4192 (   4.09kB)
-    Total RW  Size (RW Data + ZI Data)              1648 (   1.61kB)
-    Total ROM Size (Code + RO Data + RW Data)       4708 (   4.60kB)
+    Total RO  Size (Code + RO Data)                 8020 (   7.83kB)
+    Total RW  Size (RW Data + ZI Data)              1656 (   1.62kB)
+    Total ROM Size (Code + RO Data + RW Data)       8024 (   7.84kB)
 
 ==============================================================================
 

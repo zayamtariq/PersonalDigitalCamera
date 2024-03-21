@@ -156,18 +156,51 @@ void LCD_DisplayImage(uint16_t x_pos, uint16_t y_pos) {
 }
 
 
+
 /********* FILE SYSTEM FUNCTIONS **********/ 
-/*
+
 void LCD_FileMount() { 
 	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART3_DR_R = 0xFF; 
 	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
 	UART3_DR_R = 0x03; 
 	
-	if (LCD_InData() != 0x06) LCD_WriteString("file mount is fucked");  
-	LCD_InData(); 
-	LCD_InData(); 
+	if (LCD_InData() != 0x06) LCD_WriteString("file mount is fucked\n");  
+	int status_one = LCD_InData(); 
+	int status_two = LCD_InData(); 
+	int status_code = ((status_one << 8) + status_two); 
+	if (status_code != 0) LCD_WriteString("successful mounting\n"); 
+	else LCD_WriteString("unsuccessful mounting\n"); 
 } 
+
+void LCD_FileDisplayImage(uint16_t handle) { 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0xFF; 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x11;
+
+	// x coord: 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x00; 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x05;
+
+	// y coord: 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x00; 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x05;
+
+	// handle: 	
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = (handle & 0xFF00) >> 8; 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = (handle & 0x00FF);
+
+	if (LCD_InData() != 0x06) LCD_WriteString("\nDisplay Image mismatch \n"); 
+	LCD_InData(); 
+	if (LCD_InData() != 0) LCD_WriteString("\n Error in Display Image"); 
+}
 
 // unmount the file system 
 void LCD_FileUnmount() { 
@@ -177,7 +210,50 @@ void LCD_FileUnmount() {
 	UART3_DR_R = 0x02; 
 	
 	if (LCD_InData() != 0x06) LCD_WriteString("file unmount is fucked");
+	else LCD_WriteString("file sys unmounted\n");
 }
+
+void LCD_FileExists(char * file_name) { 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x00; 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x05; 
+	
+	for (int i = 0; file_name[i] != '\0'; i++) { 
+		while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+		UART3_DR_R = file_name[i];
+	}
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = '\0'; // string needs to be null terminated 
+	
+	
+	if (LCD_InData() != 0x06) LCD_WriteString("\nmiscommunication - LCD_FileExists\n");
+	LCD_InData(); 
+	if (LCD_InData() == 0x01) LCD_WriteString("\nfile found!\n");
+	else LCD_WriteString("\nfile not found\n"); 
+}
+
+int LCD_TotalFileCount() { 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x00; 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x01; 
+	
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x2A; 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x2E; 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x2A; 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x00; 
+	
+	
+	if (LCD_InData() != 0x06) LCD_WriteString("file count is fucked\n");  
+	int numfiles_one = LCD_InData(); 
+	int numfiles_two = LCD_InData(); 
+	return ((numfiles_one << 8) + numfiles_two); // total num files 
+} 
 
 // opening the file, setting it to designated mode 
 // returns the handle 
@@ -203,12 +279,43 @@ uint16_t LCD_FileOpen(char * file_name, char mode) {
 	// get ack signal: 
 	if (LCD_InData() != 0x06) LCD_WriteString("file open is fucked");  
 	
-	uint16_t handle = 0x0000;  
-	handle |= LCD_InData(); 
-	handle = handle << 8; 
-	handle |= LCD_InData(); 
+	uint16_t handle;  
+	handle = (LCD_InData() << 8) + LCD_InData(); 
 	return handle;
 }
+
+// close the file 
+void LCD_FileClose(uint16_t handle) { 
+	// command
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0xFF; 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x18;
+	
+	// handle 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = (handle & 0xFF00) >> 8; 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = (handle & 0xFF); 	
+	
+	if (LCD_InData() != 0x06) LCD_WriteString("file close is fucked"); 
+	LCD_InData(); 
+	if (LCD_InData() != 0x01) LCD_WriteString("file did not close successfully");
+}
+
+int LCD_FileError() { 
+	// command
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0xFF; 
+	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
+	UART3_DR_R = 0x1F;
+	
+	if (LCD_InData() != 0x06) LCD_WriteString("mismatch - lcd_fileerror");
+	LCD_InData(); 
+	return LCD_InData(); 
+}	
+
+/*
 
 // writing to file once it is opened 
 void LCD_FileWrite(uint16_t num_bytes, uint16_t handle) { 
@@ -248,25 +355,6 @@ void LCD_FileWrite(uint16_t num_bytes, uint16_t handle) {
 	LCD_InData(); 
 }
  
-// close the file 
-void LCD_FileClose(uint16_t handle) { 
-	// command
-	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
-	UART3_DR_R = 0xFF; 
-	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
-	UART3_DR_R = 0x18;
-	
-	// handle 
-	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
-	UART3_DR_R = (handle & 0xFF00) >> 8; 
-	while ((UART3_FR_R & UART_FR_TXFF) != 0); // busy wait 
-	UART3_DR_R = (handle & 0xFF); 	
-	
-	if (LCD_InData() != 0x06) LCD_WriteString("file close is fucked"); 
-	LCD_InData(); 
-	LCD_InData();
-}
-
 // we want to match with "IMG_*" 
 int LCD_CountFiles() { 
 	// command

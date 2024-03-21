@@ -7,6 +7,17 @@ lcd_readsector(returned_string) {
 	}
 }
 
+now we should try with the file system. scenario: there will already exist an image on the sd card, and our goal is to display it on the lcd display. 
 
-06 <- ack signal ?? 
-00 <- null terminator 
+flow of things: 
+
+file mount -> file count (device should always know how many files there are so that we can name next files when image is taken) -> 
+
+
+stranger on internet: 
+
+file mount -> load image control -> show image 
+
+geldy: 
+
+sequence is typically initialise/mount media(SD card or flash) -> load image control -> set word -> show image

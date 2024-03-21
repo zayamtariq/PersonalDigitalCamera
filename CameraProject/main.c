@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include "inc/PLL.h" 
-// #include "UART.h" 
-#include "LCD_UART.h" // LCD_UART.h -> UART.h 
+#include "UART.h" // UART.h -> LCD_UART.h 
+// #include "LCD_UART.h" // LCD_UART.h -> UART.h 
 #include "inc/Timer1A.h" 
 #include "inc/Unified_Port_Init.h"
 #include "UART0.h" 
@@ -95,12 +95,13 @@ void LCD_main1() {
 		// next test main (LCD_Camera_main2) will try and get a RAW image, and display it on the lcd display 
 }
 
+
 void LCD_Camera_main2() { 
 	DisableInterrupts();
 	PLL_Init(Bus80MHz);  
 	Unified_Port_Init(); // initialize all ports 
 	LCD_UART_Init(); // initialize lcd communication 
-	UART_Init(); 		// initialize camera here 
+	UART_Init(); 		// initialize camera communication 
 	Timer1A_Init(UART_OutSync, SyncTime * 80000, 2); // timer allows us to sync with camera module 
 	EnableInterrupts(); 
 	
@@ -286,7 +287,187 @@ void sd_card_main3() {
 }	
 
 
+// just mount the file, display an already existing image from the sd card 
+void file_system_main4() { 
+	DisableInterrupts();
+	PLL_Init(Bus80MHz);  
+	Unified_Port_Init(); // initialize all ports 
+	LCD_UART_Init(); // initialize lcd communication 
+	EnableInterrupts(); 
+	
+	// clear the image just cuz: 
+	LCD_Clear();  
+	
+	// have to mount every time: 
+	LCD_FileMount(); 
+	
+	int num_files = LCD_TotalFileCount(); 
+	if (num_files == 3) LCD_WriteString("yippee!"); // so we're counting the right number of files
+	
+	// make sure file exists:
+	LCD_FileExists("2.jpg"); 
+	LCD_FileExists("1.jpg"); 
+	LCD_FileExists("3.png"); // so all the files we expect to be there are there 
+	
+	// then, we have to retrieve the handle of our image (we'll try and display 1.jpg) 
+	// so we OPEN the file, retrieving the handle too 
+	uint16_t handle = LCD_FileOpen("3.png", 'r'); 
+	
+	// then display the image on our sd card 
+	LCD_FileDisplayImage(handle);
+	
+	// close it 
+	LCD_FileClose(handle);
+	
+	// int error = LCD_FileError(); 
+	
+	// and unmount before we finish
+	LCD_FileUnmount(); 
+}
+
+
+void Initialize_Camera_Routine() { 
+	Timer1A_Init(UART_OutSync, SyncTime * 80000, 2); // timer allows us to sync with camera module 
+	
+	Camera_HardwareReset(); // good idea to send out a reset signal at the beginning of initialization
+	UART_InData(); 					// this UART_InData() tries to catch an ACK signal 
+	LCD_WriteString("Syncing... \n"); 
+	uint8_t SyncFailureCounter = 0; 
+	while (array[0] != 0xAA || array[1] != 0x0E || array[2] != 0x0D || array[4] != 0x00 || array[5] != 0x00) { 
+		UART_InData();  
+		++SyncFailureCounter; 
+		if (SyncFailureCounter == 10) { 
+			Camera_HardwareReset(); 
+			SyncFailureCounter = 0; 
+		}
+	} 
+	// once we've gotten here, we've read our ACK signal, and can stop sending sync signals: 
+	Timer1A_Stop(); 
+	
+	// reading our CAMERA'S SYNC signal: 
+	UART_InData(); 
+	// analyze sync signal sent from camera
+	if (array[0] != 0xAA || array[1] != 0x0D || array[2] != 0x00 || array[3] != 0x00 || array[4] != 0x00 || array[5] != 0x00) { 
+		LCD_Clear(); 
+		LCD_WriteString("Sync has gone wrong. Please shut down system.\n"); 
+		while (1) {} 
+	}		
+	
+	UART_OutACK(); 
+	LCD_WriteString("Successful Initialize Routine\n"); 
+	
+}
+
+
+
+void Take_Photo_Routine() { 
+	// define the parameters of photo 
+	UART_OutInitial(); 
+	
+	// define size of image 
+	UART_OutPackageSize(); 
+	
+	// take snapshot
+	UART_OutSnapshot(); 
+	
+	for (int z = 0; z < 800000; ++z) {} // 100 ms delay to allow camera to chill 
+		
+	UART_OutGetPic(); 
+	
+	for (int z = 0; z < 800000; ++z) {} // 100 ms delay to allow camera to chill 
+	
+	// get the number of 512-byte transfers: 
+	UART_InData(); 
+	if (array[0] != 0xAA || array[1] != 0x0A || array[2] != 0x02) {
+		LCD_Clear(); 
+		LCD_WriteString("Transferring has gone wrong. Please shut down system. \n"); 
+		while (1) {} 
+	} 
+	int32_t NUM_BYTES = (((array[5] & 0xFF) << 16) + ((array[4] & 0xFF) << 8) + array[3]);  
+	int32_t NUM_TRANSFERS = NUM_BYTES / 512;  
+	
+	/**** set up lcd sd card ****/ 
+	LCD_MediaInit(); 
+	
+	// upon testing, seems like there will be about 75 transfers. we're going to have to populate 512 byte array, and send it off. 
+	// not enough space to have x9600 bytes on our tm4c all at the same time. 
+	// camera -> tm4c -> lcd display. repeat 74 more times. 
+	
+	LCD_WriteString("Beginning transfer now \n");
+	
+	LCD_SetSectorAddress(0); 
+	UART_OutCUSTOMACK(0); 
+	
+	for (int z = 0; z < 800000; ++z) {} // 100 ms delay to allow camera to chill
+	
+	UART_InNBytes(512); 
+		
+	LCD_WriteSector(image_array);
+	
+	LCD_SetSectorAddress(0); 
+	
+	/*
+	uint16_t current_package_number = 0; 
+	LCD_SetSectorAddress(0); 
+	int32_t num_bytes_left = NUM_BYTES; 
+	while (current_package_number < NUM_TRANSFERS) { 
+		UART_OutCUSTOMACK(current_package_number); 
+		
+		for (int z = 0; z < 800000; ++z) {} // 100 ms delay to allow camera to chill 
+		
+		if (num_bytes_left >= 512) { 
+			UART_InNBytes(512); // populating image array 
+		}	else { 
+			UART_InNBytes(num_bytes_left);
+		}					
+		
+		// now write to sector in SD card: 	
+		LCD_WriteSector(image_array); 
+		LCD_FlushMedia(); 
+		
+		++current_package_number; 
+		num_bytes_left -= 512; 
+		
+		// and then finally: clear image array in order to be ready for next transfer 
+		for (uint16_t k = 0; k < 512; ++k) {  
+			image_array[k] = 0; 
+		}
+	}
+	*/ 
+	
+	LCD_WriteString("Take Photo Success \n");
+	
+}
+
+void sdcard_camera_main5() { 
+	DisableInterrupts();
+	PLL_Init(Bus80MHz);  
+	Unified_Port_Init(); // initialize all ports 
+	LCD_UART_Init(); // initialize lcd communication 
+	UART_Init(); 		// initialize camera communication 
+	EnableInterrupts(); 
+	
+	// Clear the screen at start: 
+	LCD_Clear(); 
+	
+	// Initialize the Camera: 
+	Initialize_Camera_Routine(); 
+	
+	// 1. so we get RAW-type camera data from the uCAM-iii
+	// AND 2. take data from camera, to tm4c, to the lcd display 512-byte-packages at a time 
+	Take_Photo_Routine();
+
+	for (int j = 0; j < 800000; ++j) {} 
+	
+	LCD_Clear(); 
+		
+	// 3. then we call the Display Image (RAW) function for no-file-system SD card stuff 
+	LCD_DisplayImage(20, 20); 
+	
+}
+
 int main() { 
+	sdcard_camera_main5(); 
 	
 	while (1) {} 
 	

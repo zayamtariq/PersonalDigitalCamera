@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include "inc/tm4c123gh6pm.h" 
 #include "inc/CortexM.h"
-#include "UART.h"
+// #include "UART.h"
 
 // will initialize UART3 - using pc6 (u3rx) and pc7 (u3tx) 
 void LCD_UART_Init(void); 
@@ -40,14 +40,33 @@ void LCD_DisplayImage(uint16_t x_pos, uint16_t y_pos);
 
 /**** FILE SYSTEM ****/ 
 
-/*
+
 // mount the file system 
 void LCD_FileMount(void); 
 
-// open and write mode for a file 
-// handle - associated with the file
-uint16_t LCD_FileOpen(char * file_name, char mode); 
+void LCD_FileDisplayImage(uint16_t handle); 
 
+// unmount the file system 
+// no inputs 
+void LCD_FileUnmount(void); 
+
+// returns 1 if file exists, 0 if not 
+void LCD_FileExists(char * file_name); 
+
+// returns the total number of files in the sd card
+int	LCD_TotalFileCount(void);
+
+// opens the file, sets it up for a certain mode 
+// returns the handle associated with the file name 
+uint16_t LCD_FileOpen(char * file_name, char mode);
+
+// close the file 
+// input: handle associated w file 
+void LCD_FileClose(uint16_t handle); 
+
+int LCD_FileError(void); 
+
+/*
 // actually write data to the file
 // num_bytes: number of bytes we send to the file 
 // handle: associated w file 
